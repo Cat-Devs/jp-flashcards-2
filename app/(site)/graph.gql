@@ -1,0 +1,6 @@
+query GetCard($cardId: String!) {
+  card(cardId: $cardId) {
+    id
+    en
+  }
+}

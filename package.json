@@ -6,17 +6,38 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "codegen": "graphql-codegen --require dotenv/config",
+    "codegen:watch": "graphql-codegen --require dotenv/config --watch"
   },
   "dependencies": {
+    "@apollo/client": "^3.7.11",
+    "@apollo/server": "^4.6.0",
+    "@aws-sdk/client-dynamodb": "^3.306.0",
+    "@aws-sdk/lib-dynamodb": "^3.306.0",
+    "@aws-sdk/smithy-client": "^3.306.0",
+    "apollo-server-nextjs": "^4.0.0",
+    "dotenv": "^16.0.3",
+    "next": "13.2.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@aws-sdk/types": "^3.306.0",
+    "@babel/core": "^7.21.4",
+    "@graphql-codegen/cli": "^3.3.0",
+    "@graphql-codegen/client-preset": "^3.0.0",
+    "@graphql-codegen/typescript-react-apollo": "^3.3.7",
     "@types/node": "18.15.11",
     "@types/react": "18.0.33",
     "@types/react-dom": "18.0.11",
+    "autoprefixer": "^10.4.14",
     "eslint": "8.37.0",
     "eslint-config-next": "13.2.4",
-    "next": "13.2.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "graphql": "^16.6.0",
+    "graphql-tag": "^2.12.6",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.3.1",
     "typescript": "5.0.3"
   }
 }

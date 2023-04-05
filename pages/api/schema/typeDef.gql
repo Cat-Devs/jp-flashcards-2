@@ -1,0 +1,11 @@
+type Card {
+  id: ID!
+  category: String
+  level: Int
+  en: String
+}
+
+type Query {
+  card(cardId: String!): Card
+  cards: [Card]!
+}
