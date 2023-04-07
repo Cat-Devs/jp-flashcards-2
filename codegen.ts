@@ -1,7 +1,7 @@
 import { CodegenConfig } from '@graphql-codegen/cli';
 
 const config: CodegenConfig = {
-  schema: `./pages/api/schema/*.graphql`,
+  schema: `./app/api/graphql/schema/*.graphql`,
   documents: ['app/**/query.graphql'],
   overwrite: true,
   generates: {
