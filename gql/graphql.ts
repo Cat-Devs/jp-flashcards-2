@@ -1,5 +1,6 @@
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
+import * as ApolloReactHooks from '@apollo/client';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -29,6 +30,7 @@ export type Query = {
   cards: Array<Maybe<Card>>;
 };
 
+
 export type QueryCardArgs = {
   cardId: Scalars['String'];
 };
@@ -37,19 +39,18 @@ export type GetCardQueryVariables = Exact<{
   cardId: Scalars['String'];
 }>;
 
-export type GetCardQuery = {
-  __typename?: 'Query';
-  card?: { __typename?: 'Card'; id: string; en?: string | null } | null;
-};
+
+export type GetCardQuery = { __typename?: 'Query', card?: { __typename?: 'Card', id: string, en?: string | null } | null };
+
 
 export const GetCardDocument = gql`
-  query GetCard($cardId: String!) {
-    card(cardId: $cardId) {
-      id
-      en
-    }
+    query GetCard($cardId: String!) {
+  card(cardId: $cardId) {
+    id
+    en
   }
-`;
+}
+    `;
 
 /**
  * __useGetCardQuery__
@@ -67,14 +68,14 @@ export const GetCardDocument = gql`
  *   },
  * });
  */
-export function useGetCardQuery(baseOptions: Apollo.QueryHookOptions<GetCardQuery, GetCardQueryVariables>) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<GetCardQuery, GetCardQueryVariables>(GetCardDocument, options);
-}
-export function useGetCardLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetCardQuery, GetCardQueryVariables>) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<GetCardQuery, GetCardQueryVariables>(GetCardDocument, options);
-}
+export function useGetCardQuery(baseOptions: ApolloReactHooks.QueryHookOptions<GetCardQuery, GetCardQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useQuery<GetCardQuery, GetCardQueryVariables>(GetCardDocument, options);
+      }
+export function useGetCardLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<GetCardQuery, GetCardQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useLazyQuery<GetCardQuery, GetCardQueryVariables>(GetCardDocument, options);
+        }
 export type GetCardQueryHookResult = ReturnType<typeof useGetCardQuery>;
 export type GetCardLazyQueryHookResult = ReturnType<typeof useGetCardLazyQuery>;
 export type GetCardQueryResult = Apollo.QueryResult<GetCardQuery, GetCardQueryVariables>;

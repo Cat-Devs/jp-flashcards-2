@@ -1,5 +1,6 @@
 import { ApolloServer } from '@apollo/server';
-import { nextHandler } from 'apollo-server-nextjs';
+import { startServerAndCreateNextHandler } from '@as-integrations/next';
+
 import { typeDefs, resolvers } from './schema';
 
 const server = new ApolloServer({
@@ -7,4 +8,4 @@ const server = new ApolloServer({
   resolvers,
 });
 
-export default nextHandler(server);
+export default startServerAndCreateNextHandler(server);

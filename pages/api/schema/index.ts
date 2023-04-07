@@ -1,4 +1,4 @@
-import typeDefs from './typeDef.gql';
+import typeDefs from './root.graphql';
 import { resolvers } from './resolvers';
 
 export { typeDefs, resolvers };

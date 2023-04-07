@@ -1,15 +1,19 @@
 import { CodegenConfig } from '@graphql-codegen/cli';
 
 const config: CodegenConfig = {
-  schema: `./pages/api/*.gql`,
-  documents: ['app/**/*.gql'],
+  schema: `./pages/api/schema/*.graphql`,
+  documents: ['app/**/query.graphql'],
+  overwrite: true,
   generates: {
-    './gql/graphql.tsx': {
-      // preset: 'client',
+    './gql/graphql.ts': {
       plugins: ['typescript', 'typescript-operations', 'typescript-react-apollo'],
-      // presetConfig: {
-      //   gqlTagName: 'gql',
-      // },
+      config: {
+        skipTypename: false,
+        withHooks: true,
+        withHOC: false,
+        withComponent: false,
+        apolloReactHooksImportFrom: '@apollo/client',
+      },
     },
   },
   ignoreNoDocuments: false,
