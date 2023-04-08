@@ -3,30 +3,35 @@ import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { mockDb } from './mockDb';
 
 const REGION = process.env.DB_REGION; //e.g. "us-east-1"
-const client = new DynamoDBClient({ region: REGION });
 const isMock = process.env.MOCK === 'true';
 
-mockDb(isMock);
+let clientInstance: DynamoDBDocumentClient;
 
-const marshallOptions = {
-  // Whether to automatically convert empty strings, blobs, and sets to `null`.
-  convertEmptyValues: false, // false, by default.
-  // Whether to remove undefined values while marshalling.
-  removeUndefinedValues: false, // false, by default.
-  // Whether to convert typeof object to map attribute.
-  convertClassInstanceToMap: false, // false, by default.
-};
+export const getClient = (): DynamoDBDocumentClient => {
+  if (clientInstance) {
+    return clientInstance;
+  }
 
-const unmarshallOptions = {
-  // Whether to return numbers as a string instead of converting them to native JavaScript numbers.
-  wrapNumbers: false, // false, by default.
-};
+  const client = new DynamoDBClient({ region: REGION });
+  mockDb(isMock);
 
-const translateConfig = { marshallOptions, unmarshallOptions };
+  const marshallOptions = {
+    // Whether to automatically convert empty strings, blobs, and sets to `null`.
+    convertEmptyValues: false, // false, by default.
+    // Whether to remove undefined values while marshalling.
+    removeUndefinedValues: false, // false, by default.
+    // Whether to convert typeof object to map attribute.
+    convertClassInstanceToMap: false, // false, by default.
+  };
 
-// Create the DynamoDB Document client.
-const ddbClient = DynamoDBDocumentClient.from(client, translateConfig);
+  const unmarshallOptions = {
+    // Whether to return numbers as a string instead of converting them to native JavaScript numbers.
+    wrapNumbers: false, // false, by default.
+  };
 
-export const getClient = () => {
-  return ddbClient;
+  const translateConfig = { marshallOptions, unmarshallOptions };
+
+  // Create the DynamoDB Document client.
+  clientInstance = DynamoDBDocumentClient.from(client, translateConfig);
+  return clientInstance;
 };
