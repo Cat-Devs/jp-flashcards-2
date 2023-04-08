@@ -30,6 +30,7 @@ specifiers:
   react-dom: 18.2.0
   tailwindcss: ^3.3.1
   typescript: 5.0.3
+  ulid: ^2.3.0
 
 dependencies:
   '@apollo/client': 3.7.11_gdcq4dv6opitr3wbfwyjmanyra
@@ -44,6 +45,7 @@ dependencies:
   next: 13.2.4_z72xxk7vwlamvgqemvc4ptm4du
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  ulid: 2.3.0
 
 devDependencies:
   '@aws-sdk/types': 3.306.0
@@ -7350,6 +7352,11 @@ packages:
   /ua-parser-js/0.7.35:
     resolution: {integrity: sha512-veRf7dawaj9xaWEu9HoTVn5Pggtc/qj+kqTOFvNiN1l0YdxwC1kvel57UCjThjGa3BHBihE8/UJAHI+uQHmd/g==}
     dev: true
+
+  /ulid/2.3.0:
+    resolution: {integrity: sha512-keqHubrlpvT6G2wH0OEfSW4mquYRcbe/J8NMmveoQOjUqmo+hXtO+ORCpWhdbZ7k72UtY61BL7haGxW6enBnjw==}
+    hasBin: true
+    dev: false
 
   /unbox-primitive/1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}

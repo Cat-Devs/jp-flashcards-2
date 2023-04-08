@@ -3,8 +3,8 @@ import { getCard, getCards } from '@/lib';
 
 export const resolvers = {
   Query: {
-    async card(_root: any, { cardId }: GetCardQueryVariables): Promise<Card | null> {
-      const item = await getCard(cardId);
+    async card(_root: any, { cardSk }: GetCardQueryVariables): Promise<Card | null> {
+      const item = await getCard(cardSk);
       return item;
     },
 

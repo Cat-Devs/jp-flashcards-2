@@ -1,11 +1,13 @@
 type Card {
-  id: ID!
+  pk: ID
+  sk: ID!
   category: String
   level: Int
   en: String
+  jp: String
 }
 
 type Query {
-  card(cardId: String!): Card
+  card(cardSk: String!): Card
   cards: [Card]!
 }

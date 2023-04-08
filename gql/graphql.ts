@@ -20,8 +20,10 @@ export type Card = {
   __typename?: 'Card';
   category?: Maybe<Scalars['String']>;
   en?: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
+  jp?: Maybe<Scalars['String']>;
   level?: Maybe<Scalars['Int']>;
+  pk?: Maybe<Scalars['ID']>;
+  sk: Scalars['ID'];
 };
 
 export type Query = {
@@ -32,21 +34,21 @@ export type Query = {
 
 
 export type QueryCardArgs = {
-  cardId: Scalars['String'];
+  cardSk: Scalars['String'];
 };
 
 export type GetCardQueryVariables = Exact<{
-  cardId: Scalars['String'];
+  cardSk: Scalars['String'];
 }>;
 
 
-export type GetCardQuery = { __typename?: 'Query', card?: { __typename?: 'Card', id: string, en?: string | null } | null };
+export type GetCardQuery = { __typename?: 'Query', card?: { __typename?: 'Card', jp?: string | null, en?: string | null } | null };
 
 
 export const GetCardDocument = gql`
-    query GetCard($cardId: String!) {
-  card(cardId: $cardId) {
-    id
+    query GetCard($cardSk: String!) {
+  card(cardSk: $cardSk) {
+    jp
     en
   }
 }
@@ -64,7 +66,7 @@ export const GetCardDocument = gql`
  * @example
  * const { data, loading, error } = useGetCardQuery({
  *   variables: {
- *      cardId: // value for 'cardId'
+ *      cardSk: // value for 'cardSk'
  *   },
  * });
  */

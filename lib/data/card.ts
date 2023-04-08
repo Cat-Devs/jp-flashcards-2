@@ -1,28 +1,23 @@
 import { Card, Maybe } from '@/gql/graphql';
-import { QueryCommand, QueryCommandInput, ScanCommand, ScanCommandInput } from '@aws-sdk/lib-dynamodb';
+import { GetCommand, GetCommandInput, ScanCommand, ScanCommandInput } from '@aws-sdk/lib-dynamodb';
 import { getClient } from './client';
+import { CardItem } from '../models/card';
 
-export const getCard = async (id: string): Promise<Maybe<Card>> => {
-  const params: QueryCommandInput = {
+export const getCard = async (cardId: string): Promise<Maybe<Card>> => {
+  const params: GetCommandInput = {
     TableName: process.env.CARDS_TABLE_NAME as string,
-    KeyConditionExpression: '#pk = :pk',
-    ExpressionAttributeNames: {
-      '#pk': 'id',
-    },
-    ExpressionAttributeValues: {
-      ':pk': id,
-    },
+    Key: new CardItem(cardId).keys(),
   };
 
   try {
     const client = getClient();
-    const data = await client.send(new QueryCommand(params));
+    const data = await client.send(new GetCommand(params));
 
-    if (!data.Items?.length) {
+    if (!data?.Item) {
       return null;
     }
 
-    const cardItem: Card = data.Items[0] as any as Card;
+    const cardItem = data.Item as any as Card;
     return cardItem;
   } catch (err) {
     console.error(err);

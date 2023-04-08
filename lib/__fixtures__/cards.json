@@ -1,23 +1,23 @@
 [
   {
-    "id": "1",
+    "sk": "CARD#001",
     "level": 1,
     "en": "white",
-    "romaji": "shiro",
+    "jp": "shiro",
     "category": "colors"
   },
   {
-    "id": "2",
+    "sk": "CARD#002",
     "level": 1,
     "en": "black",
-    "romaji": "kuro",
+    "jp": "kuro",
     "category": "colors"
   },
   {
-    "id": "3",
+    "sk": "CARD#003",
     "level": 1,
     "en": "blue",
-    "romaji": "ao",
+    "jp": "ao",
     "category": "colors"
   }
 ]
