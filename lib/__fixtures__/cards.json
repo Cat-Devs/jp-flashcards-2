@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "level": 1,
+    "en": "white",
+    "romaji": "shiro",
+    "category": "colors"
+  },
+  {
+    "id": "2",
+    "level": 1,
+    "en": "black",
+    "romaji": "kuro",
+    "category": "colors"
+  },
+  {
+    "id": "3",
+    "level": 1,
+    "en": "blue",
+    "romaji": "ao",
+    "category": "colors"
+  }
+]
