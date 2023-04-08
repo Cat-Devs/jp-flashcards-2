@@ -27,4 +27,6 @@ const translateConfig = { marshallOptions, unmarshallOptions };
 // Create the DynamoDB Document client.
 const ddbClient = DynamoDBDocumentClient.from(client, translateConfig);
 
-export { ddbClient };
+export const getClient = () => {
+  return ddbClient;
+};

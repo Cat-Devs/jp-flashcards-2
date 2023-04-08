@@ -1,5 +1,5 @@
 import { GetCardQueryVariables, Card } from '@/gql/graphql';
-import { getCard, getCards } from '@/lib/aws';
+import { getCard, getCards } from '@/lib';
 
 export const resolvers = {
   Query: {

@@ -1,5 +1,6 @@
 import { DynamoDBDocumentClient, QueryCommand, ScanCommand } from '@aws-sdk/lib-dynamodb';
 import { mockClient } from 'aws-sdk-client-mock';
+import cards from '../__fixtures__/cards.json';
 
 export function mockDb(isMock: boolean) {
   if (!isMock) {
@@ -12,30 +13,10 @@ export function mockDb(isMock: boolean) {
       KeyConditionExpression: '#pk = :pk',
     })
     .resolves({
-      Items: [
-        {
-          en: 'mock',
-          category: 'mock',
-          level: 1,
-          id: 'mock',
-        },
-      ],
+      Items: [cards[0]],
     })
     .on(ScanCommand)
     .resolves({
-      Items: [
-        {
-          en: 'mock',
-          category: 'mock',
-          level: 1,
-          id: 'mock',
-        },
-        {
-          en: 'mock',
-          category: 'mock',
-          level: 2,
-          id: 'mock',
-        },
-      ],
+      Items: cards,
     });
 }
