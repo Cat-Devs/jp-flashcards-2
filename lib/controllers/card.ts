@@ -1,9 +1,9 @@
-import { Card, Maybe } from '@/gql/graphql';
+import { Card } from '@/gql/graphql';
 import { GetCommand, GetCommandInput, ScanCommand, ScanCommandInput } from '@aws-sdk/lib-dynamodb';
-import { getClient } from './client';
+import { getClient } from '../client';
 import { CardItem } from '../models/card';
 
-export const getCard = async (cardId: string): Promise<Maybe<Card>> => {
+export const getCard = async (cardId: string): Promise<Card> => {
   const params: GetCommandInput = {
     TableName: process.env.CARDS_TABLE_NAME as string,
     Key: new CardItem(cardId).keys(),
@@ -12,20 +12,21 @@ export const getCard = async (cardId: string): Promise<Maybe<Card>> => {
   try {
     const client = getClient();
     const data = await client.send(new GetCommand(params));
+    console.log(data);
 
     if (!data?.Item) {
-      return null;
+      throw new Error(`Failed to retrieve card: "${cardId}"`);
     }
 
-    const cardItem = data.Item as any as Card;
-    return cardItem;
+    const card = CardItem.fromItem(data.Item);
+    return card;
   } catch (err) {
     console.error(err);
-    return null;
+    throw err;
   }
 };
 
-export const getCards = async (): Promise<Array<Maybe<Card>>> => {
+export const getCards = async (): Promise<Array<Card>> => {
   const params: ScanCommandInput = {
     TableName: process.env.CARDS_TABLE_NAME as string,
   };
@@ -37,8 +38,8 @@ export const getCards = async (): Promise<Array<Maybe<Card>>> => {
       return [];
     }
 
-    const cardItem: Card[] = data.Items as any as Card[];
-    return cardItem;
+    const card = data.Items.map((dataItem) => CardItem.fromItem(dataItem));
+    return card;
   } catch (err) {
     return [];
   }

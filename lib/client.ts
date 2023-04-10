@@ -1,9 +1,8 @@
 import { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { mockDb } from './mockDb';
 
-const REGION = process.env.DB_REGION; //e.g. "us-east-1"
-const isMock = process.env.MOCK === 'true';
+const isOffline = process.env.OFFLINE === 'true';
+const REGION = isOffline ? 'localhost' : process.env.DB_REGION; //e.g. "us-east-1"
 
 let clientInstance: DynamoDBDocumentClient;
 
@@ -12,8 +11,10 @@ export const getClient = (): DynamoDBDocumentClient => {
     return clientInstance;
   }
 
-  const client = new DynamoDBClient({ region: REGION });
-  mockDb(isMock);
+  const client = new DynamoDBClient({
+    region: REGION,
+    ...(isOffline && { endpoint: 'http://localhost:8000' }),
+  });
 
   const marshallOptions = {
     // Whether to automatically convert empty strings, blobs, and sets to `null`.

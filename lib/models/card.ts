@@ -1,38 +1,48 @@
+import { Card } from '@/gql/graphql';
 import { Item } from './base';
 import { ulid } from 'ulid';
 
 export class CardItem extends Item {
-  cardId: string;
-  en: string | undefined;
-  jp: string | undefined;
+  id: string;
+  en: string;
+  jp: string;
+  category: string;
+  level: number;
 
-  constructor(cardId: string = ulid(), en?: string, jp?: string) {
+  constructor(cardId?: string, en?: string, jp?: string, category?: string, level?: number) {
     super();
-    this.cardId = cardId;
-    this.en = en;
-    this.jp = jp;
+    this.id = cardId || ulid();
+    this.en = en || '';
+    this.jp = jp || '';
+    this.category = category || '';
+    this.level = level || 0;
   }
 
-  static fromItem(item?: Record<string, string>): CardItem {
+  static fromItem(item?: Record<string, unknown>): CardItem {
     if (!item) {
       throw new Error('No item');
     }
+    const { id, en, jp, category, level } = item as any as CardItem;
 
-    return new CardItem(item.cardId);
+    return new CardItem(id, en, jp, category, level);
   }
 
   get pk(): string {
-    return '';
+    return `CARD#${this.id}`;
   }
 
   get sk(): string {
-    return `CARD#${this.cardId}`;
+    return '';
   }
 
-  toItem(): Record<string, string> {
+  toItem(): Card {
     return {
       ...this.keys,
-      en: this.cardId,
+      id: this.id,
+      category: 'test',
+      en: 'test',
+      jp: 'test',
+      level: 1,
     };
   }
 }

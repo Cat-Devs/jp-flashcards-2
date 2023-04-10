@@ -9,5 +9,5 @@ export abstract class Item {
     };
   }
 
-  abstract toItem(): Record<string, string>;
+  abstract toItem(): Record<string, unknown>;
 }
