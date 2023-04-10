@@ -1,0 +1,29 @@
+[
+  {
+    "PK": "CARD#001",
+    "SK": "CARD#001",
+    "level": 1,
+    "en": "white",
+    "jp": "shiro",
+    "category": "colors",
+    "id": "01GXN5CY2BBEHCVJB9CDC6N79E"
+  },
+  {
+    "PK": "CARD#002",
+    "SK": "CARD#002",
+    "level": 1,
+    "en": "black",
+    "jp": "kuro",
+    "category": "colors",
+    "id": "01GXN5AZPHP227MP8TR67YHP3A"
+  },
+  {
+    "PK": "CARD#003",
+    "SK": "CARD#003",
+    "level": 1,
+    "en": "blue",
+    "jp": "ao",
+    "category": "colors",
+    "id": "01GXN5AZPHSSA75ZM4JEJ8BYFW"
+  }
+]
