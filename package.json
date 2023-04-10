@@ -5,6 +5,7 @@
   "scripts": {
     "postinstall": "sls dynamodb install",
     "dev": "pnpm run codegen && next dev",
+    "localdb": "sls dynamodb start",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
