@@ -1,5 +1,5 @@
-query GetCard($cardSk: String!) {
-  card(cardSk: $cardSk) {
+query GetCard($cardId: String!) {
+  card(cardId: $cardId) {
     jp
     en
   }

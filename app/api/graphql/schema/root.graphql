@@ -1,6 +1,11 @@
+type User {
+  username: ID!
+  name: String
+  email: String
+}
+
 type Card {
-  pk: ID
-  sk: ID!
+  id: ID!
   category: String
   level: Int
   en: String
@@ -8,6 +13,8 @@ type Card {
 }
 
 type Query {
-  card(cardSk: String!): Card
+  user(username: String!): User
+  createUser(username: String!): User
+  card(cardId: String!): Card
   cards: [Card]!
 }

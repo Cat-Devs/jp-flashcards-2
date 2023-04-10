@@ -20,25 +20,43 @@ export type Card = {
   __typename?: 'Card';
   category?: Maybe<Scalars['String']>;
   en?: Maybe<Scalars['String']>;
+  id: Scalars['ID'];
   jp?: Maybe<Scalars['String']>;
   level?: Maybe<Scalars['Int']>;
-  pk?: Maybe<Scalars['ID']>;
-  sk: Scalars['ID'];
 };
 
 export type Query = {
   __typename?: 'Query';
   card?: Maybe<Card>;
   cards: Array<Maybe<Card>>;
+  createUser?: Maybe<User>;
+  user?: Maybe<User>;
 };
 
 
 export type QueryCardArgs = {
-  cardSk: Scalars['String'];
+  cardId: Scalars['String'];
+};
+
+
+export type QueryCreateUserArgs = {
+  username: Scalars['String'];
+};
+
+
+export type QueryUserArgs = {
+  username: Scalars['String'];
+};
+
+export type User = {
+  __typename?: 'User';
+  email?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  username: Scalars['ID'];
 };
 
 export type GetCardQueryVariables = Exact<{
-  cardSk: Scalars['String'];
+  cardId: Scalars['String'];
 }>;
 
 
@@ -46,8 +64,8 @@ export type GetCardQuery = { __typename?: 'Query', card?: { __typename?: 'Card',
 
 
 export const GetCardDocument = gql`
-    query GetCard($cardSk: String!) {
-  card(cardSk: $cardSk) {
+    query GetCard($cardId: String!) {
+  card(cardId: $cardId) {
     jp
     en
   }
@@ -66,7 +84,7 @@ export const GetCardDocument = gql`
  * @example
  * const { data, loading, error } = useGetCardQuery({
  *   variables: {
- *      cardSk: // value for 'cardSk'
+ *      cardId: // value for 'cardId'
  *   },
  * });
  */
