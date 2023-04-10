@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+- [Setup](#setup)
+- [Local DynamoDB](#local-dynamodb)
+  - [Mock DB table](#mock-db-table)
+- [Getting Started](#getting-started)
+- [Project and Specification](#project-and-specification)
+
 ## Setup
 
 Rename `.env.sample` to `.env` and replace the following environment variable inside.
@@ -63,8 +69,25 @@ pnpm localdb
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Deploy on Vercel
+## Project and Specification
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Intro](docs/intro.md#jp-flashcards)
+  - [Application Requirements](docs/intro.md#application-requirements)
+  - [Functional Requirements](docs/intro.md#functional-requirements)
+  - [Non Functional Requirements](docs/intro.md#non-functional-requirements)
+  - [Settings](docs/settings.md#Settings)
+    - [Game Settings](docs/settings.md#game-settings)
+  - [Game modes](docs/game_modes.md#game-modes)
+    - [Learning](docs/game_modes.md#learning)
+    - [Strength](docs/game_modes.md#strength)
+    - [Fast Game](docs/game_modes.md#fast-game)
+  - [Cards and Decks](docs/cards_and_decks.md#cards-and-decks)
+    - [Cards deck](docs/cards_and_decks.md#cards-deck)
+    - [Decks](docs/cards_and_decks.md#decks)
+    - [Cards](docs/cards_and_decks.md#cards)
+      - [Flash card](docs/cards_and_decks.md#flash-card)
+      - [User card](docs/cards_and_decks.md#user-card)
+      - [User weak card](docs/cards_and_decks.md#user-weak-card)
+  - [Data entities and access pattern](docs/entity_charts.md#data-entities-and-access-pattern)
+    - [Entity Charts](docs/entity_charts.md#entity-charts)
+    - [Access Pattern](docs/entity_charts.md#access-pattern)
