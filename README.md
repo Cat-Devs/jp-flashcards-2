@@ -1,10 +1,34 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+- [Project and Specification](#project-and-specification)
 - [Setup](#setup)
 - [Local DynamoDB](#local-dynamodb)
   - [Mock DB table](#mock-db-table)
 - [Getting Started](#getting-started)
-- [Project and Specification](#project-and-specification)
+
+## Project and Specification
+
+- [Intro](docs/intro.md#jp-flashcards)
+  - [What is JP FlashCards](docs/intro.md#what-is-jp-flashcards)
+  - [Application Requirements](docs/intro.md#application-requirements)
+  - [Functional Requirements](docs/intro.md#functional-requirements)
+  - [Non Functional Requirements](docs/intro.md#non-functional-requirements)
+  - [Settings](docs/settings.md#Settings)
+    - [Game Settings](docs/settings.md#game-settings)
+  - [Game modes](docs/game_modes.md#game-modes)
+    - [Learning](docs/game_modes.md#learning)
+    - [Strength](docs/game_modes.md#strength)
+    - [Fast Game](docs/game_modes.md#fast-game)
+  - [Cards and Decks](docs/cards_and_decks.md#cards-and-decks)
+    - [Cards deck](docs/cards_and_decks.md#cards-deck)
+    - [Decks](docs/cards_and_decks.md#decks)
+    - [Cards](docs/cards_and_decks.md#cards)
+      - [Flash card](docs/cards_and_decks.md#flash-card)
+      - [User card](docs/cards_and_decks.md#user-card)
+      - [User weak card](docs/cards_and_decks.md#user-weak-card)
+  - [Data entities and access pattern](docs/entity_charts.md#data-entities-and-access-pattern)
+    - [Entity Charts](docs/entity_charts.md#entity-charts)
+    - [Access Pattern](docs/entity_charts.md#access-pattern)
 
 ## Setup
 
@@ -68,27 +92,3 @@ pnpm localdb
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Project and Specification
-
-- [Intro](docs/intro.md#jp-flashcards)
-  - [What is JP FlashCards](docs/intro.md#what-is-jp-flashcards)
-  - [Application Requirements](docs/intro.md#application-requirements)
-  - [Functional Requirements](docs/intro.md#functional-requirements)
-  - [Non Functional Requirements](docs/intro.md#non-functional-requirements)
-  - [Settings](docs/settings.md#Settings)
-    - [Game Settings](docs/settings.md#game-settings)
-  - [Game modes](docs/game_modes.md#game-modes)
-    - [Learning](docs/game_modes.md#learning)
-    - [Strength](docs/game_modes.md#strength)
-    - [Fast Game](docs/game_modes.md#fast-game)
-  - [Cards and Decks](docs/cards_and_decks.md#cards-and-decks)
-    - [Cards deck](docs/cards_and_decks.md#cards-deck)
-    - [Decks](docs/cards_and_decks.md#decks)
-    - [Cards](docs/cards_and_decks.md#cards)
-      - [Flash card](docs/cards_and_decks.md#flash-card)
-      - [User card](docs/cards_and_decks.md#user-card)
-      - [User weak card](docs/cards_and_decks.md#user-weak-card)
-  - [Data entities and access pattern](docs/entity_charts.md#data-entities-and-access-pattern)
-    - [Entity Charts](docs/entity_charts.md#entity-charts)
-    - [Access Pattern](docs/entity_charts.md#access-pattern)
