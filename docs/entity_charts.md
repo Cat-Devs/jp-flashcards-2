@@ -24,11 +24,11 @@ Get Cards for a given level
 Get Cards for a given category
 Get all learned Cards for a given user
 
-Access Pattern                         | Target     | Parameters | Key Conditions | Notes
+Access Pattern                         | Table / GSI     | Parameters | Key Conditions | Notes
 ---------------------------------------|------------|------------|----------------|---------------------
-Get User data                          | main table | username   | PK=u#<username> and SK=u#<username> | Unique requirement on username
-get Card data                          | main table | cardId	   | PK=c#<cardId> and SK=c#<cardId> | cardId is a ULID
-Get all learned Cards for a given user | main table | username   | PK=u#<username> and SK begins_with "c#" | Query Operation
+Get User data                          | table | username   | PK=u#<username> and SK=u#<username> | Unique requirement on username
+get Card data                          | table | cardId	   | PK=c#<cardId> and SK=c#<cardId> | cardId is a ULID
+Get all learned Cards for a given user | table | username   | PK=u#<username> and SK begins_with "c#" | Query Operation
 Get weak Cards for a given user	       | GSI1 | username | PK=uc#<username> and SK=weak | Query Operation
 Get Cards for a given level            | GSI1 | level | PK=cl#<level> and SK begins_with "cc#" | Query Operation
 Get Cards for a given category	       | GSI2 | category | PK=cc#<category> and SK begins_with "cl#" | Query Operation
