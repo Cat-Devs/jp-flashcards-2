@@ -1,10 +1,14 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# JP Flashcards 2
 
-- [Project and Specification](#project-and-specification)
-- [Setup](#setup)
-- [Local DynamoDB](#local-dynamodb)
-  - [Mock DB table](#mock-db-table)
-- [Getting Started](#getting-started)
+## Table of Contents
+
+- [JP Flashcards 2](#jp-flashcards-2)
+  - [Table of Contents](#table-of-contents)
+  - [Project and Specification](#project-and-specification)
+  - [Setup](#setup)
+  - [Local DynamoDB](#local-dynamodb)
+    - [Mock DB table](#mock-db-table)
+  - [Getting Started](#getting-started)
 
 ## Project and Specification
 
