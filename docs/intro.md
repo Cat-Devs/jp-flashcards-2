@@ -1,9 +1,14 @@
 # JP FlashCards
 
 - [JP FlashCards](#jp-flashcards)
+  - [What is JP FlashCards](#what-is-jp-flashcards)
   - [Application Requirements](#application-requirements)
   - [Functional Requirements](#functional-requirements)
   - [Non Functional Requirements](#non-functional-requirements)
+
+## What is JP FlashCards
+
+This is an online flashcard based game to learn Japanese words using the spaced repetition system.
 
 ## Application Requirements
 

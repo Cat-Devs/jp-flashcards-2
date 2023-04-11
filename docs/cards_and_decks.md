@@ -35,7 +35,7 @@ Name     | Type   | Optional | Description
 ID       | HASH   | false    | A unique card identifier
 en       | string | false    | The card word in English
 jp       | string | false    | The card word in Romaji
-level    | number | false    | The card level
+level    | number | false    | The card difficulty level from 1 to 10
 category | string | false    | The card category (eg. numbers, animals, colors)
 hiragana | string | false    | The card word in hiragana format
 katakana | string | true     | The card word in katakana format, if available

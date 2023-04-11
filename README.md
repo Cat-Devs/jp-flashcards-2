@@ -72,6 +72,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Project and Specification
 
 - [Intro](docs/intro.md#jp-flashcards)
+  - [What is JP FlashCards](docs/intro.md#what-is-jp-flashcards)
   - [Application Requirements](docs/intro.md#application-requirements)
   - [Functional Requirements](docs/intro.md#functional-requirements)
   - [Non Functional Requirements](docs/intro.md#non-functional-requirements)
