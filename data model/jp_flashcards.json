@@ -1,0 +1,411 @@
+{
+  "ModelName": "jp_flashcards",
+  "ModelMetadata": {
+    "Author": "andreasonny83",
+    "DateCreated": "Apr 10, 2023, 12:52 PM",
+    "DateLastModified": "Apr 11, 2023, 08:16 PM",
+    "Description": "jp_flashcards data model",
+    "AWSService": "Amazon DynamoDB",
+    "Version": "3.0"
+  },
+  "DataModel": [
+    {
+      "TableName": "jp_flashcards",
+      "KeyAttributes": {
+        "PartitionKey": {
+          "AttributeName": "PK",
+          "AttributeType": "S"
+        },
+        "SortKey": {
+          "AttributeName": "SK",
+          "AttributeType": "S"
+        }
+      },
+      "NonKeyAttributes": [
+        {
+          "AttributeName": "GSI1-PK",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "GSI1-SK",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "GSI2-PK",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "GSI2-SK",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "EntityType",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "username",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "email",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "en",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "jp",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "level",
+          "AttributeType": "N"
+        },
+        {
+          "AttributeName": "category",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "accuracy",
+          "AttributeType": "N"
+        }
+      ],
+      "GlobalSecondaryIndexes": [
+        {
+          "IndexName": "GSI1",
+          "KeyAttributes": {
+            "PartitionKey": {
+              "AttributeName": "GSI1-PK",
+              "AttributeType": "S"
+            },
+            "SortKey": {
+              "AttributeName": "GSI1-SK",
+              "AttributeType": "S"
+            }
+          },
+          "Projection": {
+            "ProjectionType": "ALL"
+          }
+        },
+        {
+          "IndexName": "GSI2",
+          "KeyAttributes": {
+            "PartitionKey": {
+              "AttributeName": "GSI2-PK",
+              "AttributeType": "S"
+            },
+            "SortKey": {
+              "AttributeName": "GSI2-SK",
+              "AttributeType": "S"
+            }
+          },
+          "Projection": {
+            "ProjectionType": "ALL"
+          }
+        }
+      ],
+      "TableData": [
+        {
+          "PK": {
+            "S": "u#user_001"
+          },
+          "SK": {
+            "S": "u#user_001"
+          },
+          "EntityType": {
+            "S": "User"
+          },
+          "username": {
+            "S": "user_001"
+          },
+          "email": {
+            "S": "user@email.com"
+          }
+        },
+        {
+          "PK": {
+            "S": "u#user_002"
+          },
+          "SK": {
+            "S": "u#user_002"
+          },
+          "EntityType": {
+            "S": "User"
+          },
+          "username": {
+            "S": "user_002"
+          },
+          "email": {
+            "S": "user2@email.com"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#a65df"
+          },
+          "SK": {
+            "S": "c#a65df"
+          },
+          "GSI1-PK": {
+            "S": "cl#001"
+          },
+          "GSI1-SK": {
+            "S": "cc#001"
+          },
+          "GSI2-PK": {
+            "S": "cc#001"
+          },
+          "GSI2-SK": {
+            "S": "cl#001"
+          },
+          "EntityType": {
+            "S": "Card"
+          },
+          "en": {
+            "S": "white"
+          },
+          "jp": {
+            "S": "shiro"
+          },
+          "level": {
+            "N": "1"
+          },
+          "category": {
+            "S": "colors"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#r45tg"
+          },
+          "SK": {
+            "S": "c#r45tg"
+          },
+          "GSI1-PK": {
+            "S": "cl#001"
+          },
+          "GSI1-SK": {
+            "S": "cc#001"
+          },
+          "GSI2-PK": {
+            "S": "cc#001"
+          },
+          "GSI2-SK": {
+            "S": "cl#001"
+          },
+          "EntityType": {
+            "S": "Card"
+          },
+          "en": {
+            "S": "red"
+          },
+          "jp": {
+            "S": "aka"
+          },
+          "level": {
+            "N": "1"
+          },
+          "category": {
+            "S": "colors"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#t21xr"
+          },
+          "SK": {
+            "S": "c#t21xr"
+          },
+          "GSI1-PK": {
+            "S": "cl#002"
+          },
+          "GSI1-SK": {
+            "S": "cc#001"
+          },
+          "GSI2-PK": {
+            "S": "cc#001"
+          },
+          "GSI2-SK": {
+            "S": "cl#002"
+          },
+          "EntityType": {
+            "S": "Card"
+          },
+          "en": {
+            "S": "gold"
+          },
+          "jp": {
+            "S": "kin"
+          },
+          "level": {
+            "N": "2"
+          },
+          "category": {
+            "S": "colors"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#4xfrt"
+          },
+          "SK": {
+            "S": "c#4xfrt"
+          },
+          "GSI1-PK": {
+            "S": "cl#002"
+          },
+          "GSI1-SK": {
+            "S": "cc#002"
+          },
+          "GSI2-PK": {
+            "S": "cc#002"
+          },
+          "GSI2-SK": {
+            "S": "cl#002"
+          },
+          "EntityType": {
+            "S": "Card"
+          },
+          "en": {
+            "S": "lion"
+          },
+          "jp": {
+            "S": "rion"
+          },
+          "level": {
+            "N": "2"
+          },
+          "category": {
+            "S": "animals"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#e12xt"
+          },
+          "SK": {
+            "S": "c#e12xt"
+          },
+          "GSI1-PK": {
+            "S": "cl#001"
+          },
+          "GSI1-SK": {
+            "S": "cc#002"
+          },
+          "GSI2-PK": {
+            "S": "cc#002"
+          },
+          "GSI2-SK": {
+            "S": "cl#001"
+          },
+          "EntityType": {
+            "S": "Card"
+          },
+          "en": {
+            "S": "cat"
+          },
+          "jp": {
+            "S": "neko"
+          },
+          "level": {
+            "N": "1"
+          },
+          "category": {
+            "S": "animals"
+          }
+        },
+        {
+          "PK": {
+            "S": "u#user_001"
+          },
+          "SK": {
+            "S": "c#a65df"
+          },
+          "GSI1-PK": {
+            "S": "uc#user_001"
+          },
+          "GSI1-SK": {
+            "S": "weak"
+          },
+          "EntityType": {
+            "S": "UserCard"
+          },
+          "accuracy": {
+            "N": "80"
+          }
+        },
+        {
+          "PK": {
+            "S": "u#user_001"
+          },
+          "SK": {
+            "S": "c#r45tg"
+          },
+          "GSI1-PK": {
+            "S": "uc#user_001"
+          },
+          "GSI1-SK": {
+            "S": "strong"
+          },
+          "EntityType": {
+            "S": "UserCard"
+          },
+          "accuracy": {
+            "N": "100"
+          }
+        },
+        {
+          "PK": {
+            "S": "u#user_002"
+          },
+          "SK": {
+            "S": "c#a65df"
+          },
+          "GSI1-PK": {
+            "S": "uc#user_002"
+          },
+          "GSI1-SK": {
+            "S": "weak"
+          },
+          "EntityType": {
+            "S": "UserCard"
+          },
+          "accuracy": {
+            "N": "10"
+          }
+        }
+      ],
+      "DataAccess": {
+        "MySql": {}
+      },
+      "BillingMode": "PROVISIONED",
+      "ProvisionedCapacitySettings": {
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 5,
+          "WriteCapacityUnits": 5
+        },
+        "AutoScalingRead": {
+          "ScalableTargetRequest": {
+            "MinCapacity": 1,
+            "MaxCapacity": 10,
+            "ServiceRole": "AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+          },
+          "ScalingPolicyConfiguration": {
+            "TargetValue": 70
+          }
+        },
+        "AutoScalingWrite": {
+          "ScalableTargetRequest": {
+            "MinCapacity": 1,
+            "MaxCapacity": 10,
+            "ServiceRole": "AWSServiceRoleForApplicationAutoScaling_DynamoDBTable"
+          },
+          "ScalingPolicyConfiguration": {
+            "TargetValue": 70
+          }
+        }
+      }
+    }
+  ]
+}
