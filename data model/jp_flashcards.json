@@ -3,7 +3,7 @@
   "ModelMetadata": {
     "Author": "andreasonny83",
     "DateCreated": "Apr 10, 2023, 12:52 PM",
-    "DateLastModified": "Apr 11, 2023, 08:16 PM",
+    "DateLastModified": "Apr 12, 2023, 08:53 AM",
     "Description": "jp_flashcards data model",
     "AWSService": "Amazon DynamoDB",
     "Version": "3.0"

@@ -1,6 +1,6 @@
 {
   "Table": {
-    "TableName": "jp_flashcards_cards",
+    "TableName": "jp_flashcards",
     "KeySchema": [
       {
         "AttributeName": "PK",
@@ -20,6 +20,40 @@
       {
         "AttributeName": "SK",
         "AttributeType": "S"
+      }
+    ],
+    "GlobalSecondaryIndexes": [
+      {
+        "IndexName": "GSI1",
+        "KeyAttributes": {
+          "PartitionKey": {
+            "AttributeName": "GSI1-PK",
+            "AttributeType": "S"
+          },
+          "SortKey": {
+            "AttributeName": "GSI1-SK",
+            "AttributeType": "S"
+          }
+        },
+        "Projection": {
+          "ProjectionType": "ALL"
+        }
+      },
+      {
+        "IndexName": "GSI2",
+        "KeyAttributes": {
+          "PartitionKey": {
+            "AttributeName": "GSI2-PK",
+            "AttributeType": "S"
+          },
+          "SortKey": {
+            "AttributeName": "GSI2-SK",
+            "AttributeType": "S"
+          }
+        },
+        "Projection": {
+          "ProjectionType": "ALL"
+        }
       }
     ],
     "ProvisionedThroughput": {

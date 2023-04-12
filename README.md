@@ -56,7 +56,7 @@ real DynamoDB table.
 
 ### Mock DB table
 
-The mock data for the `jp_flashcards_cards` table is defined at `offline/migrations/flashcards-seed.json`.
+The mock data for the `jp_flashcards` table is defined at `offline/migrations/flashcards-seed.json`.
 
 To start DynamoDB local, run
 
@@ -73,7 +73,7 @@ aws dynamodb list-tables --endpoint-url http://localhost:8000
 finally, scan the table content with
 
 ```sh
-aws dynamodb scan --table-name jp_flashcards_cards --endpoint-url http://localhost:8000
+aws dynamodb scan --table-name jp_flashcards --endpoint-url http://localhost:8000
 ```
 
 ## Getting Started
