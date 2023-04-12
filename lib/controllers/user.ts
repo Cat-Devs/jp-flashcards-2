@@ -1,8 +1,10 @@
 import { GetCommand, GetCommandInput, PutCommand, PutCommandInput } from '@aws-sdk/lib-dynamodb';
 import { getClient } from '../client';
+import { User } from '../../gql/graphql';
 import { UserItem } from '../models/user';
 
-export const createUser = async (user: UserItem): Promise<UserItem> => {
+export const createUser = async (username: string, name: string, email: string): Promise<User> => {
+  const user = new UserItem(username, name, email);
   const params: PutCommandInput = {
     TableName: `${process.env.CARDS_TABLE_NAME}`,
     ConditionExpression: 'attribute_not_exists(PK)',
@@ -14,15 +16,15 @@ export const createUser = async (user: UserItem): Promise<UserItem> => {
     await client.send(new PutCommand(params));
     return user;
   } catch (err) {
-    console.error(err);
     throw err;
   }
 };
 
 export const getUser = async (username: string): Promise<UserItem> => {
+  const user = new UserItem(username).keys();
   const params: GetCommandInput = {
     TableName: process.env.CARDS_TABLE_NAME as string,
-    Key: new UserItem(username).keys(),
+    Key: user,
   };
 
   try {
@@ -36,7 +38,6 @@ export const getUser = async (username: string): Promise<UserItem> => {
     const user = UserItem.fromItem(data.Item);
     return user;
   } catch (err) {
-    console.error(err);
     throw err;
   }
 };

@@ -23,16 +23,16 @@ export class UserItem extends Item {
   }
 
   get pk(): string {
-    return `USER#${this.username}`;
+    return `u#${this.username}`;
   }
 
   get sk(): string {
-    return `USER#${this.username}`;
+    return `u#${this.username}`;
   }
 
   toItem(): Record<string, string> {
     return {
-      ...this.keys,
+      ...this.keys(),
       username: this.username,
       name: this.name,
       email: this.email,

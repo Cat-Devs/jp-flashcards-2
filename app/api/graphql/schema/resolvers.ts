@@ -1,6 +1,5 @@
-import { Card, QueryCardArgs, QueryCreateUserArgs, User } from '@/gql/graphql';
-import { getCard, getCards, createUser } from '@/lib';
-import { UserItem } from '@/lib/models/user';
+import { Card, QueryCardArgs, MutationCreateUserArgs, User, QueryUserArgs } from '@/gql/graphql';
+import { getCard, getCards, createUser, getUser } from '@/lib';
 
 export const resolvers = {
   Query: {
@@ -13,9 +12,16 @@ export const resolvers = {
       const item = await getCards();
       return item;
     },
-    async createUser(_root: any, { username }: QueryCreateUserArgs): Promise<User> {
-      const user = new UserItem(username);
-      const newUser = await createUser(user);
+
+    async user(_root: any, { username }: QueryUserArgs): Promise<User | null> {
+      const item = await getUser(username);
+      return item;
+    },
+  },
+  Mutation: {
+    async createUser(_root: any, { input }: MutationCreateUserArgs): Promise<User> {
+      const { username, name, email } = input;
+      const newUser = await createUser(username, name, email);
       return newUser;
     },
   },

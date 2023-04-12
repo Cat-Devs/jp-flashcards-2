@@ -28,21 +28,21 @@ export class CardItem extends Item {
   }
 
   get pk(): string {
-    return `CARD#${this.id}`;
+    return `c#${this.id}`;
   }
 
   get sk(): string {
-    return '';
+    return `c#${this.id}`;
   }
 
   toItem(): Card {
     return {
-      ...this.keys,
+      ...this.keys(),
       id: this.id,
-      category: 'test',
-      en: 'test',
-      jp: 'test',
-      level: 1,
+      category: this.category,
+      en: this.en,
+      jp: this.jp,
+      level: this.level,
     };
   }
 }

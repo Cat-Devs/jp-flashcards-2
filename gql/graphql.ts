@@ -25,22 +25,32 @@ export type Card = {
   level?: Maybe<Scalars['Int']>;
 };
 
+export type CreateUserInput = {
+  email: Scalars['String'];
+  name: Scalars['String'];
+  username: Scalars['String'];
+};
+
+export type Mutation = {
+  __typename?: 'Mutation';
+  createUser?: Maybe<User>;
+};
+
+
+export type MutationCreateUserArgs = {
+  input: CreateUserInput;
+};
+
 export type Query = {
   __typename?: 'Query';
   card?: Maybe<Card>;
   cards: Array<Maybe<Card>>;
-  createUser?: Maybe<User>;
   user?: Maybe<User>;
 };
 
 
 export type QueryCardArgs = {
   cardId: Scalars['String'];
-};
-
-
-export type QueryCreateUserArgs = {
-  username: Scalars['String'];
 };
 
 

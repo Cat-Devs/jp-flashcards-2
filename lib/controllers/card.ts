@@ -12,7 +12,6 @@ export const getCard = async (cardId: string): Promise<Card> => {
   try {
     const client = getClient();
     const data = await client.send(new GetCommand(params));
-    console.log(data);
 
     if (!data?.Item) {
       throw new Error(`Failed to retrieve card: "${cardId}"`);
@@ -21,7 +20,6 @@ export const getCard = async (cardId: string): Promise<Card> => {
     const card = CardItem.fromItem(data.Item);
     return card;
   } catch (err) {
-    console.error(err);
     throw err;
   }
 };
@@ -35,12 +33,12 @@ export const getCards = async (): Promise<Array<Card>> => {
     const client = getClient();
     const data = await client.send(new ScanCommand(params));
     if (!data.Items?.length) {
-      return [];
+      throw new Error(`Failed to retrieve cards`);
     }
 
     const card = data.Items.map((dataItem) => CardItem.fromItem(dataItem));
     return card;
   } catch (err) {
-    return [];
+    throw err;
   }
 };
