@@ -12,9 +12,9 @@ UserCard: While playing a game, every time a user completes a card, a UserCard e
 
 Entity       |	PK	             | SK           | Attributes                  | Notes
 -------------|-------------------|--------------|-----------------------------|----------------------------------------------
-User         | u#<username>      | u#<username> | EntityType, username, email | EntityType is 'User'. Username must be unique.
-Card	       | c#<CardId>        | c#<CardId>   | EntityType, en, jp, level, category, GSI1-PK, GSI1-SK, GSI2-PK, GSI2-SK | EntityType is 'Card'. CardId is a random ULID.
-UserCard     | u#<username>      | c#<CardId>   | EntityType, GSI1-PK, GSI1-SK, accuracy | EntityType is 'UserCard'.
+User         | u#<username>      | u#<username> | entityType, username, email | entityType is 'User'. Username must be unique.
+Card	       | c#<CardId>        | c#<CardId>   | entityType, en, jp, level, category, GSI1-PK, GSI1-SK, GSI2-PK, GSI2-SK | entityType is 'Card'. CardId is a random ULID.
+UserCard     | u#<username>      | c#<CardId>   | entityType, GSI1-PK, GSI1-SK, accuracy | entityType is 'UserCard'.
 
 ### Access Patterns
 

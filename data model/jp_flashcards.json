@@ -39,7 +39,7 @@
           "AttributeType": "S"
         },
         {
-          "AttributeName": "EntityType",
+          "AttributeName": "entityType",
           "AttributeType": "S"
         },
         {
@@ -113,7 +113,7 @@
           "SK": {
             "S": "u#user_001"
           },
-          "EntityType": {
+          "entityType": {
             "S": "User"
           },
           "username": {
@@ -130,7 +130,7 @@
           "SK": {
             "S": "u#user_002"
           },
-          "EntityType": {
+          "entityType": {
             "S": "User"
           },
           "username": {
@@ -159,7 +159,7 @@
           "GSI2-SK": {
             "S": "cl#001"
           },
-          "EntityType": {
+          "entityType": {
             "S": "Card"
           },
           "en": {
@@ -194,7 +194,7 @@
           "GSI2-SK": {
             "S": "cl#001"
           },
-          "EntityType": {
+          "entityType": {
             "S": "Card"
           },
           "en": {
@@ -229,7 +229,7 @@
           "GSI2-SK": {
             "S": "cl#002"
           },
-          "EntityType": {
+          "entityType": {
             "S": "Card"
           },
           "en": {
@@ -264,7 +264,7 @@
           "GSI2-SK": {
             "S": "cl#002"
           },
-          "EntityType": {
+          "entityType": {
             "S": "Card"
           },
           "en": {
@@ -299,7 +299,7 @@
           "GSI2-SK": {
             "S": "cl#001"
           },
-          "EntityType": {
+          "entityType": {
             "S": "Card"
           },
           "en": {
@@ -328,7 +328,7 @@
           "GSI1-SK": {
             "S": "weak"
           },
-          "EntityType": {
+          "entityType": {
             "S": "UserCard"
           },
           "accuracy": {
@@ -348,7 +348,7 @@
           "GSI1-SK": {
             "S": "strong"
           },
-          "EntityType": {
+          "entityType": {
             "S": "UserCard"
           },
           "accuracy": {
@@ -368,7 +368,7 @@
           "GSI1-SK": {
             "S": "weak"
           },
-          "EntityType": {
+          "entityType": {
             "S": "UserCard"
           },
           "accuracy": {

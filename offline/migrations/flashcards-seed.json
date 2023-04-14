@@ -2,14 +2,14 @@
   {
     "PK": "u#user_001",
     "SK": "u#user_001",
-    "EntityType": "User",
+    "entityType": "User",
     "username": "user_001",
     "email": "user@email.com"
   },
   {
     "PK": "u#user_002",
     "SK": "u#user_002",
-    "EntityType": "User",
+    "entityType": "User",
     "username": "user_002",
     "email": "user2@email.com"
   },
@@ -20,7 +20,7 @@
     "GSI1-SK": "cc#001",
     "GSI2-PK": "cc#001",
     "GSI2-SK": "cl#001",
-    "EntityType": "Card",
+    "entityType": "Card",
     "en": "white",
     "jp": "shiro",
     "level": 1,
@@ -33,7 +33,7 @@
     "GSI1-SK": "cc#001",
     "GSI2-PK": "cc#001",
     "GSI2-SK": "cl#001",
-    "EntityType": "Card",
+    "entityType": "Card",
     "en": "red",
     "jp": "aka",
     "level": 1,
@@ -46,7 +46,7 @@
     "GSI1-SK": "cc#001",
     "GSI2-PK": "cc#001",
     "GSI2-SK": "cl#002",
-    "EntityType": "Card",
+    "entityType": "Card",
     "en": "gold",
     "jp": "kin",
     "level": 2,
@@ -59,7 +59,7 @@
     "GSI1-SK": "cc#002",
     "GSI2-PK": "cc#002",
     "GSI2-SK": "cl#002",
-    "EntityType": "Card",
+    "entityType": "Card",
     "en": "lion",
     "jp": "rion",
     "level": 2,
@@ -72,7 +72,7 @@
     "GSI1-SK": "cc#002",
     "GSI2-PK": "cc#002",
     "GSI2-SK": "cl#001",
-    "EntityType": "Card",
+    "entityType": "Card",
     "en": "cat",
     "jp": "neko",
     "level": 1,
@@ -83,7 +83,7 @@
     "SK": "c#a65df",
     "GSI1-PK": "uc#user_001",
     "GSI1-SK": "weak",
-    "EntityType": "UserCard",
+    "entityType": "UserCard",
     "accuracy": 80
   },
   {
@@ -91,7 +91,7 @@
     "SK": "c#r45tg",
     "GSI1-PK": "uc#user_001",
     "GSI1-SK": "strong",
-    "EntityType": "UserCard",
+    "entityType": "UserCard",
     "accuracy": 100
   },
   {
@@ -99,7 +99,7 @@
     "SK": "c#a65df",
     "GSI1-PK": "uc#user_002",
     "GSI1-SK": "weak",
-    "EntityType": "UserCard",
+    "entityType": "UserCard",
     "accuracy": 10
   }
 ]
