@@ -11,9 +11,7 @@ describe('Card', () => {
       const mockSend = jest.fn().mockReturnValue({
         Item: { id: testCardId },
       });
-      jest.spyOn(client, 'getClient').mockReturnValue({
-        send: mockSend,
-      } as any);
+      jest.spyOn(client, 'getClient').mockReturnValue({ send: mockSend } as any);
       const res = await getCard(testCardId);
 
       expect(mockSend).toBeCalled();
@@ -23,9 +21,16 @@ describe('Card', () => {
     it('should throw an error when the card is not found', async () => {
       const testCardId = 'another-id';
       const mockSend = jest.fn().mockReturnValue({});
-      jest.spyOn(client, 'getClient').mockReturnValue({
-        send: mockSend,
-      } as any);
+      jest.spyOn(client, 'getClient').mockReturnValue({ send: mockSend } as any);
+
+      expect.assertions(1);
+      await expect(getCard(testCardId)).rejects.toThrowError(`Failed to retrieve card: "${testCardId}"`);
+    });
+
+    it('should throw an error when failing to perform the query operation', async () => {
+      const testCardId = 'another-id';
+      const mockSend = jest.fn().mockReturnValue({});
+      jest.spyOn(client, 'getClient').mockReturnValue({ send: mockSend } as any);
 
       expect.assertions(1);
       await expect(getCard(testCardId)).rejects.toThrowError(`Failed to retrieve card: "${testCardId}"`);
@@ -35,12 +40,8 @@ describe('Card', () => {
   describe('getCards', () => {
     it('should return a list of cards', async () => {
       const testCard = new CardItem('testCardId');
-      const mockScan = jest.fn().mockReturnValue({
-        Items: [testCard.toItem()],
-      });
-      jest.spyOn(client, 'getClient').mockReturnValue({
-        send: mockScan,
-      } as any);
+      const mockScan = jest.fn().mockReturnValue({ Items: [testCard.toItem()] });
+      jest.spyOn(client, 'getClient').mockReturnValue({ send: mockScan } as any);
 
       const res = await getCards();
 
@@ -51,9 +52,7 @@ describe('Card', () => {
 
     it('should throw an error when the cards are not found', async () => {
       const mockScan = jest.fn().mockReturnValue({});
-      jest.spyOn(client, 'getClient').mockReturnValue({
-        send: mockScan,
-      } as any);
+      jest.spyOn(client, 'getClient').mockReturnValue({ send: mockScan } as any);
 
       expect.assertions(1);
       await expect(getCards()).rejects.toThrowError(`Failed to retrieve cards`);

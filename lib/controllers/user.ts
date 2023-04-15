@@ -21,10 +21,10 @@ export const createUser = async (username: string, name: string, email: string):
 };
 
 export const getUser = async (username: string): Promise<UserItem> => {
-  const user = new UserItem(username).keys();
+  const user = new UserItem(username);
   const params: GetCommandInput = {
     TableName: process.env.CARDS_TABLE_NAME as string,
-    Key: user,
+    Key: user.keys(),
   };
 
   try {
