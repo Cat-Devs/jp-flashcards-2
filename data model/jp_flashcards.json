@@ -3,7 +3,7 @@
   "ModelMetadata": {
     "Author": "andreasonny83",
     "DateCreated": "Apr 10, 2023, 12:52 PM",
-    "DateLastModified": "Apr 12, 2023, 08:53 AM",
+    "DateLastModified": "Apr 15, 2023, 03:05 PM",
     "Description": "jp_flashcards data model",
     "AWSService": "Amazon DynamoDB",
     "Version": "3.0"
@@ -69,6 +69,10 @@
         {
           "AttributeName": "accuracy",
           "AttributeType": "N"
+        },
+        {
+          "AttributeName": "cardId",
+          "AttributeType": "S"
         }
       ],
       "GlobalSecondaryIndexes": [
@@ -331,8 +335,14 @@
           "entityType": {
             "S": "UserCard"
           },
+          "username": {
+            "S": "user_001"
+          },
           "accuracy": {
             "N": "80"
+          },
+          "cardId": {
+            "S": "a65df"
           }
         },
         {
@@ -351,8 +361,14 @@
           "entityType": {
             "S": "UserCard"
           },
+          "username": {
+            "S": "user_001"
+          },
           "accuracy": {
             "N": "100"
+          },
+          "cardId": {
+            "S": "r45tg"
           }
         },
         {
@@ -371,8 +387,14 @@
           "entityType": {
             "S": "UserCard"
           },
+          "username": {
+            "S": "user_002"
+          },
           "accuracy": {
             "N": "10"
+          },
+          "cardId": {
+            "S": "a65df"
           }
         }
       ],

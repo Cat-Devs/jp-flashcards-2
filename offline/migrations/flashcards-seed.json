@@ -84,6 +84,8 @@
     "GSI1-PK": "uc#user_001",
     "GSI1-SK": "weak",
     "entityType": "UserCard",
+    "username": "user_001",
+    "cardId": "a65df",
     "accuracy": 80
   },
   {
@@ -92,6 +94,8 @@
     "GSI1-PK": "uc#user_001",
     "GSI1-SK": "strong",
     "entityType": "UserCard",
+    "username": "user_001",
+    "cardId": "r45tg",
     "accuracy": 100
   },
   {
@@ -100,6 +104,8 @@
     "GSI1-PK": "uc#user_002",
     "GSI1-SK": "weak",
     "entityType": "UserCard",
+    "username": "user_002",
+    "cardId": "a65df",
     "accuracy": 10
   }
 ]
