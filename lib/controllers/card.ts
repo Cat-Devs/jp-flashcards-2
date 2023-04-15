@@ -4,9 +4,10 @@ import { getClient } from '../client';
 import { CardItem } from '../models/card';
 
 export const getCard = async (cardId: string): Promise<Card> => {
+  const card = new CardItem(cardId);
   const params: GetCommandInput = {
     TableName: process.env.CARDS_TABLE_NAME as string,
-    Key: new CardItem(cardId).keys(),
+    Key: card.keys(),
   };
 
   try {
