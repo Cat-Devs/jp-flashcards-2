@@ -10,10 +10,10 @@
     "start": "next start",
     "lint": "next lint",
     "codegen": "graphql-codegen --require dotenv/config",
-    "test": "jest --watch",
+    "test": "jest --watch --coverage",
     "test:coverage": "jest --coverage",
-    "codegen:watch": "graphql-codegen --require dotenv/config --watch",
-    "test:ci": "jest --ci"
+    "test:ci": "jest --ci",
+    "codegen:watch": "graphql-codegen --require dotenv/config --watch"
   },
   "dependencies": {
     "@apollo/client": "^3.7.11",
