@@ -14,7 +14,9 @@ Entity       |	PK	             | SK           | Attributes                  | No
 -------------|-------------------|--------------|-----------------------------|----------------------------------------------
 User         | u#<username>      | u#<username> | entityType, username, email | entityType is 'User'. Username must be unique.
 Card	       | c#<CardId>        | c#<CardId>   | entityType, en, jp, level, category, GSI1-PK, GSI1-SK, GSI2-PK, GSI2-SK | entityType is 'Card'. CardId is a random ULID.
-UserCard     | u#<username>      | c#<CardId>   | entityType, GSI1-PK, GSI1-SK, accuracy | entityType is 'UserCard'.
+UserCard     | u#<username>      | c#<CardId>   | entityType, GSI1-PK, GSI1-SK, cardId, accuracy | entityType is 'UserCard'.
+
+**entityType** is an identifier used to categorise the items stored in the database. This will reflect the Entity column.
 
 ### Access Patterns
 
