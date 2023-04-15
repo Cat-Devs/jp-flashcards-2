@@ -46,6 +46,7 @@ export type Query = {
   card?: Maybe<Card>;
   cards: Array<Maybe<Card>>;
   user?: Maybe<User>;
+  userCards: Array<Maybe<UserCards>>;
 };
 
 
@@ -58,11 +59,22 @@ export type QueryUserArgs = {
   username: Scalars['String'];
 };
 
+
+export type QueryUserCardsArgs = {
+  username: Scalars['String'];
+};
+
 export type User = {
   __typename?: 'User';
   email?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
   username: Scalars['ID'];
+};
+
+export type UserCards = {
+  __typename?: 'UserCards';
+  accuracy?: Maybe<Scalars['Int']>;
+  id: Scalars['ID'];
 };
 
 export type GetCardQueryVariables = Exact<{

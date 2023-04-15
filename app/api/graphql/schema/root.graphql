@@ -1,3 +1,9 @@
+input CreateUserInput {
+  username: String!
+  name: String!
+  email: String!
+}
+
 type User {
   username: ID!
   name: String
@@ -12,16 +18,16 @@ type Card {
   jp: String
 }
 
-input CreateUserInput {
-  username: String!
-  name: String!
-  email: String!
+type UserCards {
+  cardId: String!
+  accuracy: Int
 }
 
 type Query {
   user(username: String!): User
   card(cardId: String!): Card
   cards: [Card]!
+  userCards(username: String!): [UserCards]!
 }
 
 type Mutation {
