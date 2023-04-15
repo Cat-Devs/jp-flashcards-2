@@ -1,4 +1,3 @@
-import { Card } from '@/gql/graphql';
 import { Item } from './base';
 import { ulid } from 'ulid';
 
