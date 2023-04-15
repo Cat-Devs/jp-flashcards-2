@@ -9,9 +9,9 @@ export class CardItem extends Item {
   category: string;
   level: number;
 
-  constructor(cardId?: string, en?: string, jp?: string, category?: string, level?: number) {
-    super();
-    this.id = cardId || ulid();
+  constructor(id?: string, en?: string, jp?: string, category?: string, level?: number) {
+    super('Card');
+    this.id = id || ulid();
     this.en = en || '';
     this.jp = jp || '';
     this.category = category || '';
@@ -35,9 +35,10 @@ export class CardItem extends Item {
     return `c#${this.id}`;
   }
 
-  toItem(): Card {
+  toItem(): Record<string, unknown> {
     return {
       ...this.keys(),
+      entityCard: this.entityType,
       id: this.id,
       category: this.category,
       en: this.en,

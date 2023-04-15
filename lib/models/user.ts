@@ -6,7 +6,7 @@ export class UserItem extends Item {
   email: string;
 
   constructor(username: string, name?: string, email?: string) {
-    super();
+    super('User');
     this.username = username;
     this.name = name || '';
     this.email = email || '';
@@ -33,6 +33,7 @@ export class UserItem extends Item {
   toItem(): Record<string, string> {
     return {
       ...this.keys(),
+      entityCard: this.entityType,
       username: this.username,
       name: this.name,
       email: this.email,
