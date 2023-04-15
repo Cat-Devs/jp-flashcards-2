@@ -9,8 +9,8 @@ export const resolvers = {
     },
 
     async cards(): Promise<Array<Card | null>> {
-      const item = await getCards();
-      return item;
+      const items = await getCards();
+      return items;
     },
 
     async user(_root: any, { username }: QueryUserArgs): Promise<User | null> {
