@@ -1,13 +1,13 @@
 import { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 
-const isOffline = process.env.OFFLINE === 'true';
-const REGION = isOffline ? 'localhost' : process.env.DB_REGION; //e.g. "us-east-1"
+let clientInstance: DynamoDBDocumentClient | undefined;
 
-let clientInstance: DynamoDBDocumentClient;
+export const getClient = (force?: boolean): DynamoDBDocumentClient => {
+  const isOffline = process.env.OFFLINE === 'true';
+  const REGION = isOffline ? 'localhost' : process.env.DB_REGION; //e.g. "us-east-1"
 
-export const getClient = (): DynamoDBDocumentClient => {
-  if (clientInstance) {
+  if (clientInstance && !force) {
     return clientInstance;
   }
 
