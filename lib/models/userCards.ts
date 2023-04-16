@@ -34,7 +34,7 @@ export class UserCardsItem extends Item {
       ...this.keys(),
       username: this.username,
       accuracy: this.accuracy,
-      cardId: this.sk,
+      cardId: this.cardId,
     };
   }
 }
