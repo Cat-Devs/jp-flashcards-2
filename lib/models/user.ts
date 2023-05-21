@@ -17,9 +17,9 @@ export class UserItem extends Item {
       throw new Error('No item');
     }
 
-    const { username, name, email } = item as any as UserItem;
+    const { username, name, email } = item;
 
-    return new UserItem(username, name, email);
+    return new UserItem(`${username}`, `${name}`, `${email}`);
   }
 
   get pk(): string {

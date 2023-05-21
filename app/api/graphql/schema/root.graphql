@@ -4,6 +4,11 @@ input CreateUserInput {
   email: String!
 }
 
+input CardsInput {
+  category: String
+  level: Int
+}
+
 type User {
   username: ID!
   name: String
@@ -26,7 +31,7 @@ type UserCards {
 type Query {
   user(username: String!): User
   card(cardId: String!): Card
-  cards: [Card]!
+  cards(input: CardsInput!): [Card]!
   userCards(username: String!): [UserCards]!
 }
 

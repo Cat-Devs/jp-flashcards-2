@@ -1,16 +1,13 @@
 import { Item } from './base';
-import { ulid } from 'ulid';
 
 export class CardItem extends Item {
-  id: string;
   en: string;
   jp: string;
   category: string;
   level: number;
 
-  constructor(id?: string, en?: string, jp?: string, category?: string, level?: number) {
-    super('Card');
-    this.id = id || ulid();
+  constructor(id: string, en?: string, jp?: string, category?: string, level?: number) {
+    super('Card', id);
     this.en = en || '';
     this.jp = jp || '';
     this.category = category || '';
@@ -21,9 +18,10 @@ export class CardItem extends Item {
     if (!item) {
       throw new Error('No item');
     }
-    const { id, en, jp, category, level } = item as any as CardItem;
 
-    return new CardItem(id, en, jp, category, level);
+    const { PK, en, jp, category, level } = item;
+    const id = `${PK}`.replace('c#', '');
+    return new CardItem(id, `${en}`, `${jp}`, `${category}`, Number(level));
   }
 
   get pk(): string {

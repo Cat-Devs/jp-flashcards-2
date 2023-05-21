@@ -1,5 +1,13 @@
-import { Card, QueryCardArgs, MutationCreateUserArgs, User, QueryUserArgs, QueryUserCardsArgs } from '@/gql/graphql';
-import { getCard, getCards, createUser, getUser } from '@/lib';
+import {
+  Card,
+  QueryCardArgs,
+  QueryCardsArgs,
+  MutationCreateUserArgs,
+  User,
+  QueryUserArgs,
+  QueryUserCardsArgs,
+} from '@/gql/graphql';
+import { getCard, createUser, getUser, getCardsByCategory, getCardsByLevel } from '@/lib';
 import { getUserCards } from '@/lib/controllers/userCards';
 
 export const resolvers = {
@@ -9,8 +17,30 @@ export const resolvers = {
       return item;
     },
 
-    async cards(): Promise<Array<Card | null>> {
-      const items = await getCards();
+    async cards(_root: any, { input }: QueryCardsArgs): Promise<Array<Card | null>> {
+      const { category, level } = input;
+
+      if (category && level) {
+        throw new Error('Cannot provide both a category and a level');
+      }
+
+      if (!level && !category) {
+        throw new Error('Either a category or a level must be provided');
+      }
+
+      let items: Card[];
+      if (level) {
+        if (typeof level !== 'number') {
+          throw new Error('Invalid input: level must be a number');
+        }
+        items = await getCardsByLevel(level);
+      } else {
+        if (typeof category !== 'string') {
+          throw new Error('Invalid input: category must be a string');
+        }
+        items = await getCardsByCategory(category);
+      }
+
       return items;
     },
 

@@ -5,7 +5,7 @@ import { Card } from '@/components/Card';
 export default function Post() {
   const { data, loading, error } = useGetCardQuery({
     variables: {
-      cardId: '1',
+      cardId: 'a65df',
     },
   });
 

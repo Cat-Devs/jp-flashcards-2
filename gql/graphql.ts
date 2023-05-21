@@ -25,6 +25,11 @@ export type Card = {
   level?: Maybe<Scalars['Int']>;
 };
 
+export type CardsInput = {
+  category?: InputMaybe<Scalars['String']>;
+  level?: InputMaybe<Scalars['Int']>;
+};
+
 export type CreateUserInput = {
   email: Scalars['String'];
   name: Scalars['String'];
@@ -55,6 +60,11 @@ export type QueryCardArgs = {
 };
 
 
+export type QueryCardsArgs = {
+  input: CardsInput;
+};
+
+
 export type QueryUserArgs = {
   username: Scalars['String'];
 };
@@ -74,7 +84,7 @@ export type User = {
 export type UserCards = {
   __typename?: 'UserCards';
   accuracy?: Maybe<Scalars['Int']>;
-  id: Scalars['ID'];
+  cardId: Scalars['String'];
 };
 
 export type GetCardQueryVariables = Exact<{
@@ -82,7 +92,7 @@ export type GetCardQueryVariables = Exact<{
 }>;
 
 
-export type GetCardQuery = { __typename?: 'Query', card?: { __typename?: 'Card', jp?: string | null, en?: string | null } | null };
+export type GetCardQuery = { __typename?: 'Query', card?: { __typename?: 'Card', jp?: string | null, en?: string | null, id: string } | null };
 
 
 export const GetCardDocument = gql`
@@ -90,6 +100,7 @@ export const GetCardDocument = gql`
   card(cardId: $cardId) {
     jp
     en
+    id
   }
 }
     `;

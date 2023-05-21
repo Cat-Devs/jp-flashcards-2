@@ -15,12 +15,11 @@ const customJestConfig = {
     '^@/lib/(.*)$': '<rootDir>/lib/$1',
   },
   collectCoverageFrom: [
-    './lib/**/*.tsx',
-    './components/**/*.tsx',
-    './app/**/*.tsx',
-    './lib/**/*.ts',
-    './components/**/*.ts',
-    './app/**/*.ts',
+    './lib/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
+    '!./app/**/layout.{ts,tsx}',
+    '!./**/index.ts',
   ],
   coverageThreshold: {
     global: {

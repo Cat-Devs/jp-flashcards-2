@@ -1,5 +1,5 @@
 import { Card } from '@/gql/graphql';
-import { GetCommand, GetCommandInput, ScanCommand, ScanCommandInput } from '@aws-sdk/lib-dynamodb';
+import { GetCommand, GetCommandInput, QueryCommandInput, QueryCommand } from '@aws-sdk/lib-dynamodb';
 import { getClient } from '../client';
 import { CardItem } from '../models/card';
 
@@ -18,21 +18,59 @@ export const getCard = async (cardId: string): Promise<Card> => {
       throw new Error(`Failed to retrieve card: "${cardId}"`);
     }
 
-    const card = CardItem.fromItem(data.Item);
+    return CardItem.fromItem(data.Item);
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const getCardsByCategory = async (category: string): Promise<Array<Card>> => {
+  const params: QueryCommandInput = {
+    TableName: process.env.CARDS_TABLE_NAME as string,
+    IndexName: 'GSI2',
+    KeyConditionExpression: '#PK = :pk and begins_with(#SK, :sk)',
+    ExpressionAttributeNames: {
+      '#PK': 'GSI2-PK',
+      '#SK': 'GSI2-SK',
+    },
+    ExpressionAttributeValues: {
+      ':pk': `cc#${category}`,
+      ':sk': `cl#`,
+    },
+  };
+
+  try {
+    const client = getClient();
+    const data = await client.send(new QueryCommand(params));
+    if (!data.Items?.length) {
+      throw new Error(`Failed to retrieve cards`);
+    }
+
+    const card = data.Items.map((dataItem) => CardItem.fromItem(dataItem));
     return card;
   } catch (err) {
     throw err;
   }
 };
 
-export const getCards = async (): Promise<Array<Card>> => {
-  const params: ScanCommandInput = {
+export const getCardsByLevel = async (level: number): Promise<Array<Card>> => {
+  const params: QueryCommandInput = {
     TableName: process.env.CARDS_TABLE_NAME as string,
+    IndexName: 'GSI1',
+    KeyConditionExpression: '#PK = :pk and begins_with(#SK, :sk)',
+    ExpressionAttributeNames: {
+      '#PK': 'GSI1-PK',
+      '#SK': 'GSI1-SK',
+    },
+    ExpressionAttributeValues: {
+      ':pk': `cl#00${level}`,
+      ':sk': `cc#`,
+    },
   };
 
   try {
     const client = getClient();
-    const data = await client.send(new ScanCommand(params));
+    const data = await client.send(new QueryCommand(params));
     if (!data.Items?.length) {
       throw new Error(`Failed to retrieve cards`);
     }
