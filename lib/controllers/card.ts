@@ -24,6 +24,35 @@ export const getCard = async (cardId: string): Promise<Card> => {
   }
 };
 
+export const getCardsByLevelAndCategory = async (level: number, category: string): Promise<Array<Card>> => {
+  const params: QueryCommandInput = {
+    TableName: process.env.CARDS_TABLE_NAME as string,
+    IndexName: 'GSI2',
+    KeyConditionExpression: '#PK = :pk and #SK = :sk',
+    ExpressionAttributeNames: {
+      '#PK': 'GSI2-PK',
+      '#SK': 'GSI2-SK',
+    },
+    ExpressionAttributeValues: {
+      ':pk': `cc#${category}`,
+      ':sk': `cl#00${level}`,
+    },
+  };
+
+  try {
+    const client = getClient();
+    const data = await client.send(new QueryCommand(params));
+    if (!data.Items?.length) {
+      throw new Error(`Failed to retrieve cards`);
+    }
+
+    const card = data.Items.map((dataItem) => CardItem.fromItem(dataItem));
+    return card;
+  } catch (err) {
+    throw err;
+  }
+};
+
 export const getCardsByCategory = async (category: string): Promise<Array<Card>> => {
   const params: QueryCommandInput = {
     TableName: process.env.CARDS_TABLE_NAME as string,
