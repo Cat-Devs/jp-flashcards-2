@@ -20,6 +20,7 @@ export type Card = {
   __typename?: 'Card';
   category?: Maybe<Scalars['String']>;
   en?: Maybe<Scalars['String']>;
+  hiragana?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
   jp?: Maybe<Scalars['String']>;
   level?: Maybe<Scalars['Int']>;

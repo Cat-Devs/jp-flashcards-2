@@ -3,13 +3,15 @@ import { Item } from './base';
 export class CardItem extends Item {
   en: string;
   jp: string;
+  hiragana: string;
   category: string;
   level: number;
 
-  constructor(id: string, en?: string, jp?: string, category?: string, level?: number) {
+  constructor(id: string, en?: string, jp?: string, hiragana?: string, category?: string, level?: number) {
     super('Card', id);
     this.en = en || '';
     this.jp = jp || '';
+    this.hiragana = hiragana || '';
     this.category = category || '';
     this.level = level || 0;
   }
@@ -19,9 +21,9 @@ export class CardItem extends Item {
       throw new Error('No item');
     }
 
-    const { PK, en, jp, category, level } = item;
+    const { PK, en, jp, hiragana, category, level } = item;
     const id = `${PK}`.replace('c#', '');
-    return new CardItem(id, `${en}`, `${jp}`, `${category}`, Number(level));
+    return new CardItem(id, `${en}`, `${jp}`, `${hiragana}`, `${category}`, Number(level));
   }
 
   get pk(): string {
@@ -40,6 +42,7 @@ export class CardItem extends Item {
       category: this.category,
       en: this.en,
       jp: this.jp,
+      hiragana: this.hiragana,
       level: this.level,
     };
   }

@@ -7,7 +7,9 @@
 ### Entity Charts
 
 User: A user must have a unique username and an email address
+
 Card: A card must have a unique cardId, a category, a level. It should contain an English word and a translated Japanese one.
+
 UserCard: While playing a game, every time a user completes a card, a UserCard entry will be created, if not already existing. Each UserCard will have an "accuracy" based of the precision of correct answer given by the user for the specific card.
 
 Entity       |	PK	             | SK           | Attributes                  | Notes
@@ -20,13 +22,21 @@ UserCard     | u#<username>      | c#<CardId>   | entityType, GSI1-PK, GSI1-SK, 
 
 ### Access Patterns
 
+
 Get user for a given username
+
 Get card for a given cardId
+
 Get Cards for a given level
+
 Get Cards for a given category
+
 Get all learned Cards for a given user
+
 Get weak Cards for a given user
+
 Create user card
+
 Update user card
 
 Access Pattern                         | Table / GSI | Parameters | Key Conditions | Notes

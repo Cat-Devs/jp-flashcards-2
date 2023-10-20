@@ -21,6 +21,7 @@ type Card {
   level: Int
   en: String
   jp: String
+  hiragana: String
 }
 
 type UserCards {

@@ -3,7 +3,7 @@
   "ModelMetadata": {
     "Author": "andreasonny83",
     "DateCreated": "Apr 10, 2023, 12:52 PM",
-    "DateLastModified": "Apr 15, 2023, 03:05 PM",
+    "DateLastModified": "Oct 20, 2023, 08:19 PM",
     "Description": "jp_flashcards data model",
     "AWSService": "Amazon DynamoDB",
     "Version": "3.0"
@@ -43,19 +43,15 @@
           "AttributeType": "S"
         },
         {
-          "AttributeName": "username",
-          "AttributeType": "S"
-        },
-        {
-          "AttributeName": "email",
-          "AttributeType": "S"
-        },
-        {
           "AttributeName": "en",
           "AttributeType": "S"
         },
         {
           "AttributeName": "jp",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "hiragana",
           "AttributeType": "S"
         },
         {
@@ -72,6 +68,14 @@
         },
         {
           "AttributeName": "cardId",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "username",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "email",
           "AttributeType": "S"
         }
       ],
@@ -146,10 +150,10 @@
         },
         {
           "PK": {
-            "S": "c#a65df"
+            "S": "c#hgna1"
           },
           "SK": {
-            "S": "c#a65df"
+            "S": "c#hgna1"
           },
           "GSI1-PK": {
             "S": "cl#001"
@@ -159,6 +163,956 @@
           },
           "GSI2-PK": {
             "S": "cc#001"
+          },
+          "GSI2-SK": {
+            "S": "cl#001"
+          },
+          "entityType": {
+            "S": "Card"
+          },
+          "en": {
+            "S": "rain"
+          },
+          "jp": {
+            "S": "a"
+          },
+          "hiragana": {
+            "S": "あめ"
+          },
+          "level": {
+            "N": "1"
+          },
+          "category": {
+            "S": "hiragana"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#hgna2"
+          },
+          "SK": {
+            "S": "c#hgna2"
+          },
+          "GSI1-PK": {
+            "S": "cl#001"
+          },
+          "GSI1-SK": {
+            "S": "cc#001"
+          },
+          "GSI2-PK": {
+            "S": "cc#001"
+          },
+          "GSI2-SK": {
+            "S": "cl#001"
+          },
+          "entityType": {
+            "S": "Card"
+          },
+          "en": {
+            "S": "strawberry"
+          },
+          "jp": {
+            "S": "i"
+          },
+          "hiragana": {
+            "S": "いちご"
+          },
+          "level": {
+            "N": "1"
+          },
+          "category": {
+            "S": "hiragana"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#hgna3"
+          },
+          "SK": {
+            "S": "c#hgna3"
+          },
+          "GSI1-PK": {
+            "S": "cl#001"
+          },
+          "GSI1-SK": {
+            "S": "cc#001"
+          },
+          "GSI2-PK": {
+            "S": "cc#001"
+          },
+          "GSI2-SK": {
+            "S": "cl#001"
+          },
+          "entityType": {
+            "S": "Card"
+          },
+          "en": {
+            "S": "rabbit"
+          },
+          "jp": {
+            "S": "u"
+          },
+          "hiragana": {
+            "S": "うさぎ"
+          },
+          "level": {
+            "N": "1"
+          },
+          "category": {
+            "S": "hiragana"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#hgna4"
+          },
+          "SK": {
+            "S": "c#hgna4"
+          },
+          "GSI1-PK": {
+            "S": "cl#001"
+          },
+          "GSI1-SK": {
+            "S": "cc#001"
+          },
+          "GSI2-PK": {
+            "S": "cc#001"
+          },
+          "GSI2-SK": {
+            "S": "cl#001"
+          },
+          "entityType": {
+            "S": "Card"
+          },
+          "en": {
+            "S": "pencil"
+          },
+          "jp": {
+            "S": "e"
+          },
+          "hiragana": {
+            "S": "えんぴつ"
+          },
+          "level": {
+            "N": "1"
+          },
+          "category": {
+            "S": "hiragana"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#hgna5"
+          },
+          "SK": {
+            "S": "c#hgna5"
+          },
+          "GSI1-PK": {
+            "S": "cl#001"
+          },
+          "GSI1-SK": {
+            "S": "cc#001"
+          },
+          "GSI2-PK": {
+            "S": "cc#001"
+          },
+          "GSI2-SK": {
+            "S": "cl#001"
+          },
+          "entityType": {
+            "S": "Card"
+          },
+          "en": {
+            "S": "delicious"
+          },
+          "jp": {
+            "S": "o"
+          },
+          "hiragana": {
+            "S": "おいしい"
+          },
+          "level": {
+            "N": "1"
+          },
+          "category": {
+            "S": "hiragana"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#hgna6"
+          },
+          "SK": {
+            "S": "c#hgna6"
+          },
+          "GSI1-PK": {
+            "S": "cl#001"
+          },
+          "GSI1-SK": {
+            "S": "cc#001"
+          },
+          "GSI2-PK": {
+            "S": "cc#001"
+          },
+          "GSI2-SK": {
+            "S": "cl#001"
+          },
+          "entityType": {
+            "S": "Card"
+          },
+          "en": {
+            "S": "pumpkin"
+          },
+          "jp": {
+            "S": "ka"
+          },
+          "hiragana": {
+            "S": "かぼちゃ"
+          },
+          "level": {
+            "N": "2"
+          },
+          "category": {
+            "S": "hiragana"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#hgna7"
+          },
+          "SK": {
+            "S": "c#hgna7"
+          },
+          "GSI1-PK": {
+            "S": "cl#001"
+          },
+          "GSI1-SK": {
+            "S": "cc#001"
+          },
+          "GSI2-PK": {
+            "S": "cc#001"
+          },
+          "GSI2-SK": {
+            "S": "cl#001"
+          },
+          "entityType": {
+            "S": "Card"
+          },
+          "en": {
+            "S": "fox"
+          },
+          "jp": {
+            "S": "ki"
+          },
+          "hiragana": {
+            "S": "きつね"
+          },
+          "level": {
+            "N": "2"
+          },
+          "category": {
+            "S": "hiraganaa"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#hgna8"
+          },
+          "SK": {
+            "S": "c#hgna8"
+          },
+          "GSI1-PK": {
+            "S": "cl#001"
+          },
+          "GSI1-SK": {
+            "S": "cc#001"
+          },
+          "GSI2-PK": {
+            "S": "cc#001"
+          },
+          "GSI2-SK": {
+            "S": "cl#001"
+          },
+          "entityType": {
+            "S": "Card"
+          },
+          "en": {
+            "S": "spider"
+          },
+          "jp": {
+            "S": "ku"
+          },
+          "hiragana": {
+            "S": "くも"
+          },
+          "level": {
+            "N": "2"
+          },
+          "category": {
+            "S": "hiragana"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#hgna9"
+          },
+          "SK": {
+            "S": "c#hgna9"
+          },
+          "GSI1-PK": {
+            "S": "cl#001"
+          },
+          "GSI1-SK": {
+            "S": "cc#001"
+          },
+          "GSI2-PK": {
+            "S": "cc#001"
+          },
+          "GSI2-SK": {
+            "S": "cl#001"
+          },
+          "entityType": {
+            "S": "Card"
+          },
+          "en": {
+            "S": "eraser"
+          },
+          "jp": {
+            "S": "ke"
+          },
+          "hiragana": {
+            "S": "けしごむ"
+          },
+          "level": {
+            "N": "2"
+          },
+          "category": {
+            "S": "hiragana"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#hgna10"
+          },
+          "SK": {
+            "S": "c#hgna10"
+          },
+          "GSI1-PK": {
+            "S": "cl#001"
+          },
+          "GSI1-SK": {
+            "S": "cc#001"
+          },
+          "GSI2-PK": {
+            "S": "cc#001"
+          },
+          "GSI2-SK": {
+            "S": "cl#001"
+          },
+          "entityType": {
+            "S": "Card"
+          },
+          "en": {
+            "S": "child"
+          },
+          "jp": {
+            "S": "ko"
+          },
+          "hiragana": {
+            "S": "こども"
+          },
+          "level": {
+            "N": "2"
+          },
+          "category": {
+            "S": "hiragana"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#hgna11"
+          },
+          "SK": {
+            "S": "c#hgna11"
+          },
+          "GSI1-PK": {
+            "S": "cl#001"
+          },
+          "GSI1-SK": {
+            "S": "cc#001"
+          },
+          "GSI2-PK": {
+            "S": "cc#001"
+          },
+          "GSI2-SK": {
+            "S": "cl#001"
+          },
+          "entityType": {
+            "S": "Card"
+          },
+          "en": {
+            "S": "fish"
+          },
+          "jp": {
+            "S": "sa"
+          },
+          "hiragana": {
+            "S": "さかな"
+          },
+          "level": {
+            "N": "3"
+          },
+          "category": {
+            "S": "hiragana"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#hgna12"
+          },
+          "SK": {
+            "S": "c#hgna12"
+          },
+          "GSI1-PK": {
+            "S": "cl#001"
+          },
+          "GSI1-SK": {
+            "S": "cc#001"
+          },
+          "GSI2-PK": {
+            "S": "cc#001"
+          },
+          "GSI2-SK": {
+            "S": "cl#001"
+          },
+          "entityType": {
+            "S": "Card"
+          },
+          "en": {
+            "S": "newspaper"
+          },
+          "jp": {
+            "S": "shi"
+          },
+          "hiragana": {
+            "S": "しんぶん"
+          },
+          "level": {
+            "N": "3"
+          },
+          "category": {
+            "S": "hiragana"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#hgna13"
+          },
+          "SK": {
+            "S": "c#hgna13"
+          },
+          "GSI1-PK": {
+            "S": "cl#001"
+          },
+          "GSI1-SK": {
+            "S": "cc#001"
+          },
+          "GSI2-PK": {
+            "S": "cc#001"
+          },
+          "GSI2-SK": {
+            "S": "cl#001"
+          },
+          "entityType": {
+            "S": "Card"
+          },
+          "en": {
+            "S": "watermellon"
+          },
+          "jp": {
+            "S": "su"
+          },
+          "hiragana": {
+            "S": "すいか"
+          },
+          "level": {
+            "N": "3"
+          },
+          "category": {
+            "S": "hiragana"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#hgna14"
+          },
+          "SK": {
+            "S": "c#hgna14"
+          },
+          "GSI1-PK": {
+            "S": "cl#001"
+          },
+          "GSI1-SK": {
+            "S": "cc#001"
+          },
+          "GSI2-PK": {
+            "S": "cc#001"
+          },
+          "GSI2-SK": {
+            "S": "cl#001"
+          },
+          "entityType": {
+            "S": "Card"
+          },
+          "en": {
+            "S": "teacher"
+          },
+          "jp": {
+            "S": "se"
+          },
+          "hiragana": {
+            "S": "せんせい"
+          },
+          "level": {
+            "N": "3"
+          },
+          "category": {
+            "S": "hiragana"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#hgna15"
+          },
+          "SK": {
+            "S": "c#hgna15"
+          },
+          "GSI1-PK": {
+            "S": "cl#001"
+          },
+          "GSI1-SK": {
+            "S": "cc#001"
+          },
+          "GSI2-PK": {
+            "S": "cc#001"
+          },
+          "GSI2-SK": {
+            "S": "cl#001"
+          },
+          "entityType": {
+            "S": "Card"
+          },
+          "en": {
+            "S": "sky"
+          },
+          "jp": {
+            "S": "so"
+          },
+          "hiragana": {
+            "S": "そら"
+          },
+          "level": {
+            "N": "3"
+          },
+          "category": {
+            "S": "hiragana"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#hgna16"
+          },
+          "SK": {
+            "S": "c#hgna16"
+          },
+          "GSI1-PK": {
+            "S": "cl#001"
+          },
+          "GSI1-SK": {
+            "S": "cc#001"
+          },
+          "GSI2-PK": {
+            "S": "cc#001"
+          },
+          "GSI2-SK": {
+            "S": "cl#001"
+          },
+          "entityType": {
+            "S": "Card"
+          },
+          "en": {
+            "S": "sun"
+          },
+          "jp": {
+            "S": "ta"
+          },
+          "hiragana": {
+            "S": "たいよう"
+          },
+          "level": {
+            "N": "4"
+          },
+          "category": {
+            "S": "hiragana"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#hgna17"
+          },
+          "SK": {
+            "S": "c#hgna17"
+          },
+          "GSI1-PK": {
+            "S": "cl#001"
+          },
+          "GSI1-SK": {
+            "S": "cc#001"
+          },
+          "GSI2-PK": {
+            "S": "cc#001"
+          },
+          "GSI2-SK": {
+            "S": "cl#001"
+          },
+          "entityType": {
+            "S": "Card"
+          },
+          "en": {
+            "S": "map"
+          },
+          "jp": {
+            "S": "chi"
+          },
+          "hiragana": {
+            "S": "ちず"
+          },
+          "level": {
+            "N": "4"
+          },
+          "category": {
+            "S": "hiragana"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#hgna18"
+          },
+          "SK": {
+            "S": "c#hgna18"
+          },
+          "GSI1-PK": {
+            "S": "cl#001"
+          },
+          "GSI1-SK": {
+            "S": "cc#001"
+          },
+          "GSI2-PK": {
+            "S": "cc#001"
+          },
+          "GSI2-SK": {
+            "S": "cl#001"
+          },
+          "entityType": {
+            "S": "Card"
+          },
+          "en": {
+            "S": "moon"
+          },
+          "jp": {
+            "S": "tsu"
+          },
+          "hiragana": {
+            "S": "つき"
+          },
+          "level": {
+            "N": "4"
+          },
+          "category": {
+            "S": "hiragana"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#hgna19"
+          },
+          "SK": {
+            "S": "c#hgna19"
+          },
+          "GSI1-PK": {
+            "S": "cl#001"
+          },
+          "GSI1-SK": {
+            "S": "cc#001"
+          },
+          "GSI2-PK": {
+            "S": "cc#001"
+          },
+          "GSI2-SK": {
+            "S": "cl#001"
+          },
+          "entityType": {
+            "S": "Card"
+          },
+          "en": {
+            "S": "letter"
+          },
+          "jp": {
+            "S": "te"
+          },
+          "hiragana": {
+            "S": "てがみ"
+          },
+          "level": {
+            "N": "4"
+          },
+          "category": {
+            "S": "hiragana"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#hgna20"
+          },
+          "SK": {
+            "S": "c#hgna20"
+          },
+          "GSI1-PK": {
+            "S": "cl#001"
+          },
+          "GSI1-SK": {
+            "S": "cc#001"
+          },
+          "GSI2-PK": {
+            "S": "cc#001"
+          },
+          "GSI2-SK": {
+            "S": "cl#001"
+          },
+          "entityType": {
+            "S": "Card"
+          },
+          "en": {
+            "S": "friend"
+          },
+          "jp": {
+            "S": "to"
+          },
+          "hiragana": {
+            "S": "ともだち"
+          },
+          "level": {
+            "N": "4"
+          },
+          "category": {
+            "S": "hiragana"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#hgna21"
+          },
+          "SK": {
+            "S": "c#hgna21"
+          },
+          "GSI1-PK": {
+            "S": "cl#001"
+          },
+          "GSI1-SK": {
+            "S": "cc#001"
+          },
+          "GSI2-PK": {
+            "S": "cc#001"
+          },
+          "GSI2-SK": {
+            "S": "cl#001"
+          },
+          "entityType": {
+            "S": "Card"
+          },
+          "en": {
+            "S": "crying"
+          },
+          "jp": {
+            "S": "na"
+          },
+          "hiragana": {
+            "S": "なく"
+          },
+          "level": {
+            "N": "5"
+          },
+          "category": {
+            "S": "hiragana"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#hgna22"
+          },
+          "SK": {
+            "S": "c#hgna22"
+          },
+          "GSI1-PK": {
+            "S": "cl#001"
+          },
+          "GSI1-SK": {
+            "S": "cc#001"
+          },
+          "GSI2-PK": {
+            "S": "cc#001"
+          },
+          "GSI2-SK": {
+            "S": "cl#001"
+          },
+          "entityType": {
+            "S": "Card"
+          },
+          "en": {
+            "S": "carrot"
+          },
+          "jp": {
+            "S": "ni"
+          },
+          "hiragana": {
+            "S": "にんじん"
+          },
+          "level": {
+            "N": "5"
+          },
+          "category": {
+            "S": "hiragana"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#hgna23"
+          },
+          "SK": {
+            "S": "c#hgna23"
+          },
+          "GSI1-PK": {
+            "S": "cl#001"
+          },
+          "GSI1-SK": {
+            "S": "cc#001"
+          },
+          "GSI2-PK": {
+            "S": "cc#001"
+          },
+          "GSI2-SK": {
+            "S": "cl#001"
+          },
+          "entityType": {
+            "S": "Card"
+          },
+          "en": {
+            "S": "stuffed animal"
+          },
+          "jp": {
+            "S": "nu"
+          },
+          "hiragana": {
+            "S": "ぬいぐるみ"
+          },
+          "level": {
+            "N": "5"
+          },
+          "category": {
+            "S": "hiragana"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#hgna24"
+          },
+          "SK": {
+            "S": "c#hgna24"
+          },
+          "GSI1-PK": {
+            "S": "cl#001"
+          },
+          "GSI1-SK": {
+            "S": "cc#001"
+          },
+          "GSI2-PK": {
+            "S": "cc#001"
+          },
+          "GSI2-SK": {
+            "S": "cl#001"
+          },
+          "entityType": {
+            "S": "Card"
+          },
+          "en": {
+            "S": "cat"
+          },
+          "jp": {
+            "S": "ne"
+          },
+          "hiragana": {
+            "S": "ねこ"
+          },
+          "level": {
+            "N": "5"
+          },
+          "category": {
+            "S": "hiragana"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#hgna25"
+          },
+          "SK": {
+            "S": "c#hgna25"
+          },
+          "GSI1-PK": {
+            "S": "cl#001"
+          },
+          "GSI1-SK": {
+            "S": "cc#001"
+          },
+          "GSI2-PK": {
+            "S": "cc#001"
+          },
+          "GSI2-SK": {
+            "S": "cl#001"
+          },
+          "entityType": {
+            "S": "Card"
+          },
+          "en": {
+            "S": "seaweed"
+          },
+          "jp": {
+            "S": "no"
+          },
+          "hiragana": {
+            "S": "のり"
+          },
+          "level": {
+            "N": "5"
+          },
+          "category": {
+            "S": "hiragana"
+          }
+        },
+        {
+          "PK": {
+            "S": "c#a65df"
+          },
+          "SK": {
+            "S": "c#a65df"
+          },
+          "GSI1-PK": {
+            "S": "cl#001"
+          },
+          "GSI1-SK": {
+            "S": "cc#002"
+          },
+          "GSI2-PK": {
+            "S": "cc#002"
           },
           "GSI2-SK": {
             "S": "cl#001"
@@ -190,10 +1144,10 @@
             "S": "cl#001"
           },
           "GSI1-SK": {
-            "S": "cc#001"
+            "S": "cc#002"
           },
           "GSI2-PK": {
-            "S": "cc#001"
+            "S": "cc#002"
           },
           "GSI2-SK": {
             "S": "cl#001"
@@ -225,10 +1179,10 @@
             "S": "cl#002"
           },
           "GSI1-SK": {
-            "S": "cc#001"
+            "S": "cc#002"
           },
           "GSI2-PK": {
-            "S": "cc#001"
+            "S": "cc#002"
           },
           "GSI2-SK": {
             "S": "cl#002"
@@ -335,14 +1289,14 @@
           "entityType": {
             "S": "UserCard"
           },
-          "username": {
-            "S": "user_001"
-          },
           "accuracy": {
             "N": "80"
           },
           "cardId": {
             "S": "a65df"
+          },
+          "username": {
+            "S": "user_001"
           }
         },
         {
@@ -361,14 +1315,14 @@
           "entityType": {
             "S": "UserCard"
           },
-          "username": {
-            "S": "user_001"
-          },
           "accuracy": {
             "N": "100"
           },
           "cardId": {
             "S": "r45tg"
+          },
+          "username": {
+            "S": "user_001"
           }
         },
         {
@@ -387,14 +1341,14 @@
           "entityType": {
             "S": "UserCard"
           },
-          "username": {
-            "S": "user_002"
-          },
           "accuracy": {
             "N": "10"
           },
           "cardId": {
             "S": "a65df"
+          },
+          "username": {
+            "S": "user_002"
           }
         }
       ],
