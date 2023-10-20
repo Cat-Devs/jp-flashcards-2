@@ -15,5 +15,10 @@ export default function Post() {
 
   const { card } = data;
 
-  return <Card data={card} />;
+  return (
+    <div>
+      page
+      <Card data={card} />
+    </div>
+  );
 }
