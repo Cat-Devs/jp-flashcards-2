@@ -26,7 +26,7 @@ This is an online flashcard based game to learn Japanese words using the spaced 
 
 **Mobile Compatibility:** Make the application mobile-friendly so that users can access it on their smartphones and tablets.
 
-**Social Features:** Implement social features such as leaderboards, challenges, and sharing options to make learning more engaging and interactive.
+**Social Features:** Implement social features such as leader boards, challenges, and sharing options to make learning more engaging and interactive.
 
 **Database Management:** Ensure that the application has an efficient database management system to handle large amounts of user data.
 

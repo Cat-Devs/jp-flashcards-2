@@ -39,14 +39,15 @@ Create user card
 
 Update user card
 
-Access Pattern                         | Table / GSI | Parameters | Key Conditions | Notes
----------------------------------------|-------------|------------|----------------|---------------------
-Get user for a given username          | table | username   | PK=u#<username> and SK=u#<username>       | GetItem. Unique requirement on username
-Get card for a given cardId            | table | cardId	    | PK=c#<cardId> and SK=c#<cardId>           | GetItem. cardId is a ULID
-Get Cards for a given level            | GSI1  | level      | PK=cl#<level> and SK begins_with "cc#"    | Query Operation
-Get Cards for a given category	       | GSI2  | category   | PK=cc#<category> and SK begins_with "cl#" | Query Operation
-Get all learned Cards for a given user | table | username   | PK=u#<username> and SK begins_with "c#"   | Query Operation
-Get weak Cards for a given user	       | GSI1  | username   | PK=uc#<username> and SK=weak              | Query Operation
-Create user                            | table | username, email            | PK=u#<username> and SK=u#<username> | PutItem
-Create user card                       | table | username, cardId, accuracy | PK=u#<username> and SK=c#<cardId>   | PutItem
-Update user card                       | table | username, cardId, accuracy | PK=u#<username> and SK=c#<cardId>   | UpdateItem
+Access Pattern                           | Table / GSI | Parameters | Key Conditions | Notes
+-----------------------------------------|-------------|------------|----------------|---------------------
+Get user for a given username            | table | username   | PK=u#<username> and SK=u#<username>       | GetItem. Unique requirement on username
+Get card for a given cardId              | table | cardId	    | PK=c#<cardId> and SK=c#<cardId>           | GetItem. cardId is a ULID
+Get Cards for a given level              | GSI1  | level      | PK=cl#<level> and SK begins_with "cc#"    | Query Operation
+Get Cards for a given category	         | GSI2  | category   | PK=cc#<category> and SK begins_with "cl#" | Query Operation
+Get Cards for a given level and category | GSI2  | level, category | PK=cc#<level> and SK=cl#<category>   | Query Operation
+Get all learned Cards for a given user   | table | username   | PK=u#<username> and SK begins_with "c#"   | Query Operation
+Get weak Cards for a given user	         | GSI1  | username   | PK=uc#<username> and SK=weak              | Query Operation
+Create user                              | table | username, email            | PK=u#<username> and SK=u#<username> | PutItem
+Create user card                         | table | username, cardId, accuracy | PK=u#<username> and SK=c#<cardId>   | PutItem
+Update user card                         | table | username, cardId, accuracy | PK=u#<username> and SK=c#<cardId>   | UpdateItem
