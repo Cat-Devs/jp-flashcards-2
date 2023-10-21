@@ -10,7 +10,6 @@ specifiers:
   '@aws-sdk/types': ^3.306.0
   '@babel/core': ^7.21.4
   '@babel/preset-typescript': ^7.21.4
-  '@grafbase/sdk': ~0.7.1
   '@graphql-codegen/cli': ^3.3.0
   '@graphql-codegen/client-preset': ^3.0.0
   '@graphql-codegen/typescript-react-apollo': ^3.3.7
@@ -32,7 +31,6 @@ specifiers:
   encoding: ^0.1.13
   eslint: 8.37.0
   eslint-config-next: 13.2.4
-  grafbase: ^0.40.2
   graphql: ^16.6.0
   graphql-tag: ^2.12.6
   jest: ^29.5.0
@@ -67,7 +65,6 @@ devDependencies:
   '@aws-sdk/types': 3.306.0
   '@babel/core': 7.21.4
   '@babel/preset-typescript': 7.21.4_@babel+core@7.21.4
-  '@grafbase/sdk': 0.7.1
   '@graphql-codegen/cli': 3.3.0_agdqh7anppysi5xyck5m63nici
   '@graphql-codegen/client-preset': 3.0.0_rjjjs2nwgns3bcvnnqb5eu5nry
   '@graphql-codegen/typescript-react-apollo': 3.3.7_h5id4k276q7jixaqo46vuuayz4
@@ -86,7 +83,6 @@ devDependencies:
   babel-jest: 29.5.0_@babel+core@7.21.4
   eslint: 8.37.0
   eslint-config-next: 13.2.4_vwh6htx42aidho2qgfca5u5rwm
-  grafbase: 0.40.2
   graphql: 16.6.0
   graphql-tag: 2.12.6_graphql@16.6.0
   jest: 29.5.0_rrli7kzx2akox3oq6aahu3rvje
@@ -1906,54 +1902,6 @@ packages:
   /@eslint/js/8.37.0:
     resolution: {integrity: sha512-x5vzdtOOGgFVDCUs81QRB2+liax8rFg3+7hqM+QhBG0/G3F1ZsoYl97UrqgHgQ9KKT7G6c4V+aTUCgu/n22v1A==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
-    dev: true
-
-  /@grafbase/cli-aarch64-apple-darwin/0.40.2:
-    resolution: {integrity: sha512-4FDpAUzNHKCpARzHhpCXW5NxA4MUfX84yfnFg1uV6SjurdsGj7OXn8locEn7LX0/RLXET95JA/cdiiw/4zufRg==}
-    cpu: [arm64]
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@grafbase/cli-aarch64-unknown-linux-musl/0.40.2:
-    resolution: {integrity: sha512-ry6CiK9EtPWGFRhczsJwDDP3BB+CFUPe7mSIWsffVMDxYOk9gaOTRObfdGw2CNe7h49LbZ8VAMsMk48k4dbqmg==}
-    cpu: [arm64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@grafbase/cli-x86_64-apple-darwin/0.40.2:
-    resolution: {integrity: sha512-n1kddUQmLsSPlycSVpO/RVPfLYBSwcGoLDznN4iqwA4xRY1aPrUWagnppQXg/hf3td5/m5uqSzLvihw8k+NUCA==}
-    cpu: [x64]
-    os: [darwin]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@grafbase/cli-x86_64-pc-windows-msvc/0.40.2:
-    resolution: {integrity: sha512-/uylvCO2JbdFHLbyCD9+PT2hwyVg/56dpW9B6nWGxBcfVkKC0ovRSKwww5biupEUS1mF4htaEyZjfA49IRS+kQ==}
-    cpu: [x64]
-    os: [win32]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@grafbase/cli-x86_64-unknown-linux-musl/0.40.2:
-    resolution: {integrity: sha512-T1cNkuBs91XfSAcvH5W313ArOiarY6klUF1Ti/SBG0Oj+AKBbqf/GogwFvupABymTQPKKldSWfMERSVOidSO8w==}
-    cpu: [x64]
-    os: [linux]
-    requiresBuild: true
-    dev: true
-    optional: true
-
-  /@grafbase/sdk/0.7.1:
-    resolution: {integrity: sha512-1Exm1NkySsodyO0VHsefiKEi+f7BgpBMiM7aad7YpXuSc9sATN67klGEnomxy+CpG70G9vca02l+B1dlirDYRg==}
-    engines: {node: '>=16.13.0'}
-    dependencies:
-      dotenv: 16.3.1
-      type-fest: 3.13.1
     dev: true
 
   /@graphql-codegen/add/4.0.1_graphql@16.6.0:
@@ -7054,18 +7002,6 @@ packages:
 
   /graceful-fs/4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
-
-  /grafbase/0.40.2:
-    resolution: {integrity: sha512-irUmDb+1/SSEuCKQID1fLrDF4xQckSpgJcPbpFwUXx1RIMjKpSncmA3mLvWECYZVmdYDTG945EJnNEe7c7IWQA==}
-    hasBin: true
-    requiresBuild: true
-    optionalDependencies:
-      '@grafbase/cli-aarch64-apple-darwin': 0.40.2
-      '@grafbase/cli-aarch64-unknown-linux-musl': 0.40.2
-      '@grafbase/cli-x86_64-apple-darwin': 0.40.2
-      '@grafbase/cli-x86_64-pc-windows-msvc': 0.40.2
-      '@grafbase/cli-x86_64-unknown-linux-musl': 0.40.2
-    dev: true
 
   /grapheme-splitter/1.0.4:
     resolution: {integrity: sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==}
