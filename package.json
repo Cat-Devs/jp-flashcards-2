@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "postinstall": "sls dynamodb install",
+    "dynamodb:install": "sls dynamodb install",
     "dev": "pnpm codegen && next dev",
     "localdb": "sls dynamodb start",
     "graphql:dev": "grafbase dev",
