@@ -20,8 +20,12 @@ type Card {
   category: String
   level: Int
   en: String
-  jp: String
+  sample: String
+  kana: String
   hiragana: String
+  katakana: String
+  romaji: String
+  image: String
 }
 
 type UserCards {

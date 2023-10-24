@@ -18,8 +18,10 @@ export type Card = {
   en?: Maybe<Scalars['String']>;
   hiragana?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
-  jp?: Maybe<Scalars['String']>;
+  kana?: Maybe<Scalars['String']>;
+  katakana?: Maybe<Scalars['String']>;
   level?: Maybe<Scalars['Int']>;
+  romaji?: Maybe<Scalars['String']>;
 };
 
 export type CardsInput = {
@@ -89,4 +91,4 @@ export type GetCardQueryVariables = Exact<{
 }>;
 
 
-export type GetCardQuery = { __typename?: 'Query', card?: { __typename?: 'Card', jp?: string | null, en?: string | null, id: string, category?: string | null, hiragana?: string | null, level?: number | null } | null };
+export type GetCardQuery = { __typename?: 'Query', card?: { __typename?: 'Card', en?: string | null, id: string, category?: string | null, hiragana?: string | null, level?: number | null } | null };

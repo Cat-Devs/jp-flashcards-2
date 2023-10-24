@@ -1,29 +1,52 @@
+import { toHiragana, toKana, toKatakana } from 'wanakana';
 import { Item } from './base';
 
 export class CardItem extends Item {
   en: string;
-  jp: string;
-  hiragana: string;
   category: string;
   level: number;
+  romaji?: string;
+  sample?: string;
+  kana?: string;
+  hiragana?: string;
+  katakana?: string;
+  image?: string;
 
-  constructor(id: string, en?: string, jp?: string, hiragana?: string, category?: string, level?: number) {
+  constructor(
+    id?: string,
+    en?: string,
+    romaji?: string,
+    sample?: string,
+    category?: string,
+    image?: string,
+    level?: number
+  ) {
     super('Card', id);
     this.en = en || '';
-    this.jp = jp || '';
-    this.hiragana = hiragana || '';
     this.category = category || '';
     this.level = level || 0;
+    this.romaji = romaji;
+    this.sample = sample;
+    this.image = image;
+
+    if (sample) {
+      this.sample = toKana(sample);
+    }
+    if (romaji) {
+      this.kana = toKana(romaji);
+      this.hiragana = toHiragana(romaji);
+      this.katakana = toKatakana(romaji);
+    }
   }
 
-  static fromItem(item?: Record<string, unknown>): CardItem {
+  static fromItem(item?: Record<string, any>): CardItem {
     if (!item) {
       throw new Error('No item');
     }
 
-    const { PK, en, jp, hiragana, category, level } = item;
+    const { PK, en, romaji, sample, category, image, level } = item;
     const id = `${PK}`.replace('c#', '');
-    return new CardItem(id, `${en}`, `${jp}`, `${hiragana}`, `${category}`, Number(level));
+    return new CardItem(id, en, romaji, sample, category, image, level);
   }
 
   get pk(): string {
@@ -41,8 +64,8 @@ export class CardItem extends Item {
       id: this.id,
       category: this.category,
       en: this.en,
-      jp: this.jp,
-      hiragana: this.hiragana,
+      romaji: this.romaji,
+      sample: this.sample,
       level: this.level,
     };
   }

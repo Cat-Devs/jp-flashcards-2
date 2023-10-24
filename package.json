@@ -13,7 +13,8 @@
     "test": "jest --watchAll --coverage",
     "test:coverage": "jest --coverage",
     "test:ci": "jest --ci",
-    "codegen:watch": "graphql-codegen --require dotenv/config --watch"
+    "codegen:watch": "graphql-codegen --require dotenv/config --watch",
+    "migrate": "node migrate.js"
   },
   "dependencies": {
     "@apollo/client": "^3.7.11",
@@ -29,7 +30,9 @@
     "next": "13.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "ts-invariant": "^0.10.3"
+    "ts-invariant": "^0.10.3",
+    "ulid": "^2.3.0",
+    "wanakana": "^5.2.0"
   },
   "devDependencies": {
     "@aws-sdk/types": "^3.306.0",
@@ -47,6 +50,7 @@
     "@types/node": "18.15.11",
     "@types/react": "18.0.33",
     "@types/react-dom": "18.0.11",
+    "@types/wanakana": "^4.0.5",
     "autoprefixer": "^10.4.14",
     "aws-sdk-client-mock": "^2.1.1",
     "aws-sdk-client-mock-jest": "^2.1.1",

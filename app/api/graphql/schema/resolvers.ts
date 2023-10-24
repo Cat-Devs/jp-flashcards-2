@@ -20,10 +20,6 @@ export const resolvers = {
     async cards(_root: any, { input }: QueryCardsArgs): Promise<Array<Card | null>> {
       const { category, level } = input;
 
-      // if (category && level) {
-      //   throw new Error('Cannot provide both a category and a level');
-      // }
-
       if (!level && !category) {
         throw new Error('Either a category or a level must be provided');
       }
@@ -41,6 +37,7 @@ export const resolvers = {
         if (typeof level !== 'number') {
           throw new Error('Invalid input: level must be a number');
         }
+
         items = await getCardsByLevel(level);
       } else {
         if (typeof category !== 'string') {

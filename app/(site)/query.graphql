@@ -1,7 +1,9 @@
 query GetCard($cardId: String!) {
   card(cardId: $cardId) {
-    jp
     en
     id
+    category
+    hiragana
+    level
   }
 }

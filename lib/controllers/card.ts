@@ -5,6 +5,7 @@ import { CardItem } from '../models/card';
 
 export const getCard = async (cardId: string): Promise<Card> => {
   const card = new CardItem(cardId);
+
   const params: GetCommandInput = {
     TableName: process.env.CARDS_TABLE_NAME as string,
     Key: card.keys(),
@@ -14,8 +15,9 @@ export const getCard = async (cardId: string): Promise<Card> => {
     const client = getClient();
     const data = await client.send(new GetCommand(params));
 
-    if (!data?.Item) {
-      throw new Error(`Failed to retrieve card: "${cardId}"`);
+    if (!data.Item) {
+      console.log(`Failed to retrieve card: "${cardId}"`);
+      return {} as unknown as Card;
     }
 
     return CardItem.fromItem(data.Item);
@@ -43,7 +45,8 @@ export const getCardsByLevelAndCategory = async (level: number, category: string
     const client = getClient();
     const data = await client.send(new QueryCommand(params));
     if (!data.Items?.length) {
-      throw new Error(`Failed to retrieve cards`);
+      console.log('No items found');
+      return [];
     }
 
     const card = data.Items.map((dataItem) => CardItem.fromItem(dataItem));
@@ -72,7 +75,8 @@ export const getCardsByCategory = async (category: string): Promise<Array<Card>>
     const client = getClient();
     const data = await client.send(new QueryCommand(params));
     if (!data.Items?.length) {
-      throw new Error(`Failed to retrieve cards`);
+      console.log('No items found');
+      return [];
     }
 
     const card = data.Items.map((dataItem) => CardItem.fromItem(dataItem));
@@ -101,7 +105,8 @@ export const getCardsByLevel = async (level: number): Promise<Array<Card>> => {
     const client = getClient();
     const data = await client.send(new QueryCommand(params));
     if (!data.Items?.length) {
-      throw new Error(`Failed to retrieve cards`);
+      console.log('No items found');
+      return [];
     }
 
     const card = data.Items.map((dataItem) => CardItem.fromItem(dataItem));

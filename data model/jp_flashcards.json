@@ -3,7 +3,7 @@
   "ModelMetadata": {
     "Author": "andreasonny83",
     "DateCreated": "Apr 10, 2023, 12:52 PM",
-    "DateLastModified": "Oct 20, 2023, 08:19 PM",
+    "DateLastModified": "Oct 24, 2023, 03:53 PM",
     "Description": "jp_flashcards data model",
     "AWSService": "Amazon DynamoDB",
     "Version": "3.0"
@@ -47,11 +47,11 @@
           "AttributeType": "S"
         },
         {
-          "AttributeName": "jp",
+          "AttributeName": "sample",
           "AttributeType": "S"
         },
         {
-          "AttributeName": "hiragana",
+          "AttributeName": "romaji",
           "AttributeType": "S"
         },
         {
@@ -76,6 +76,10 @@
         },
         {
           "AttributeName": "email",
+          "AttributeType": "S"
+        },
+        {
+          "AttributeName": "image",
           "AttributeType": "S"
         }
       ],
@@ -173,11 +177,11 @@
           "en": {
             "S": "rain"
           },
-          "jp": {
-            "S": "a"
+          "sample": {
+            "S": "ame"
           },
-          "hiragana": {
-            "S": "あめ"
+          "romaji": {
+            "S": "a"
           },
           "level": {
             "N": "1"
@@ -211,17 +215,20 @@
           "en": {
             "S": "strawberry"
           },
-          "jp": {
-            "S": "i"
+          "sample": {
+            "S": "ichigo"
           },
-          "hiragana": {
-            "S": "いちご"
+          "romaji": {
+            "S": "i"
           },
           "level": {
             "N": "1"
           },
           "category": {
             "S": "hiragana"
+          },
+          "image": {
+            "S": "001"
           }
         },
         {
@@ -249,11 +256,11 @@
           "en": {
             "S": "rabbit"
           },
-          "jp": {
-            "S": "u"
+          "sample": {
+            "S": "usaghi"
           },
-          "hiragana": {
-            "S": "うさぎ"
+          "romaji": {
+            "S": "u"
           },
           "level": {
             "N": "1"
@@ -287,11 +294,11 @@
           "en": {
             "S": "pencil"
           },
-          "jp": {
-            "S": "e"
+          "sample": {
+            "S": "enpitsu"
           },
-          "hiragana": {
-            "S": "えんぴつ"
+          "romaji": {
+            "S": "e"
           },
           "level": {
             "N": "1"
@@ -325,11 +332,11 @@
           "en": {
             "S": "delicious"
           },
-          "jp": {
-            "S": "o"
+          "sample": {
+            "S": "oishii"
           },
-          "hiragana": {
-            "S": "おいしい"
+          "romaji": {
+            "S": "o"
           },
           "level": {
             "N": "1"
@@ -363,11 +370,11 @@
           "en": {
             "S": "pumpkin"
           },
-          "jp": {
-            "S": "ka"
+          "sample": {
+            "S": "kabocha"
           },
-          "hiragana": {
-            "S": "かぼちゃ"
+          "romaji": {
+            "S": "ka"
           },
           "level": {
             "N": "2"
@@ -401,11 +408,11 @@
           "en": {
             "S": "fox"
           },
-          "jp": {
-            "S": "ki"
+          "sample": {
+            "S": "kitsune"
           },
-          "hiragana": {
-            "S": "きつね"
+          "romaji": {
+            "S": "ki"
           },
           "level": {
             "N": "2"
@@ -439,11 +446,11 @@
           "en": {
             "S": "spider"
           },
-          "jp": {
-            "S": "ku"
+          "sample": {
+            "S": "kumo"
           },
-          "hiragana": {
-            "S": "くも"
+          "romaji": {
+            "S": "ku"
           },
           "level": {
             "N": "2"
@@ -477,11 +484,11 @@
           "en": {
             "S": "eraser"
           },
-          "jp": {
-            "S": "ke"
+          "sample": {
+            "S": "keshigomu"
           },
-          "hiragana": {
-            "S": "けしごむ"
+          "romaji": {
+            "S": "ke"
           },
           "level": {
             "N": "2"
@@ -515,11 +522,11 @@
           "en": {
             "S": "child"
           },
-          "jp": {
-            "S": "ko"
+          "sample": {
+            "S": "kodomo"
           },
-          "hiragana": {
-            "S": "こども"
+          "romaji": {
+            "S": "ko"
           },
           "level": {
             "N": "2"
@@ -553,11 +560,11 @@
           "en": {
             "S": "fish"
           },
-          "jp": {
-            "S": "sa"
+          "sample": {
+            "S": "sakana"
           },
-          "hiragana": {
-            "S": "さかな"
+          "romaji": {
+            "S": "a"
           },
           "level": {
             "N": "3"
@@ -591,11 +598,11 @@
           "en": {
             "S": "newspaper"
           },
-          "jp": {
-            "S": "shi"
+          "sample": {
+            "S": "shinbun"
           },
-          "hiragana": {
-            "S": "しんぶん"
+          "romaji": {
+            "S": "shi"
           },
           "level": {
             "N": "3"
@@ -629,11 +636,11 @@
           "en": {
             "S": "watermellon"
           },
-          "jp": {
-            "S": "su"
+          "sample": {
+            "S": "suika"
           },
-          "hiragana": {
-            "S": "すいか"
+          "romaji": {
+            "S": "su"
           },
           "level": {
             "N": "3"
@@ -667,11 +674,11 @@
           "en": {
             "S": "teacher"
           },
-          "jp": {
-            "S": "se"
+          "sample": {
+            "S": "sensei"
           },
-          "hiragana": {
-            "S": "せんせい"
+          "romaji": {
+            "S": "se"
           },
           "level": {
             "N": "3"
@@ -705,11 +712,11 @@
           "en": {
             "S": "sky"
           },
-          "jp": {
-            "S": "so"
+          "sample": {
+            "S": "sora"
           },
-          "hiragana": {
-            "S": "そら"
+          "romaji": {
+            "S": "so"
           },
           "level": {
             "N": "3"
@@ -743,11 +750,11 @@
           "en": {
             "S": "sun"
           },
-          "jp": {
-            "S": "ta"
+          "sample": {
+            "S": "taiyou"
           },
-          "hiragana": {
-            "S": "たいよう"
+          "romaji": {
+            "S": "ta"
           },
           "level": {
             "N": "4"
@@ -781,11 +788,11 @@
           "en": {
             "S": "map"
           },
-          "jp": {
-            "S": "chi"
+          "sample": {
+            "S": "chizu"
           },
-          "hiragana": {
-            "S": "ちず"
+          "romaji": {
+            "S": "chi"
           },
           "level": {
             "N": "4"
@@ -819,11 +826,11 @@
           "en": {
             "S": "moon"
           },
-          "jp": {
-            "S": "tsu"
+          "sample": {
+            "S": "tsuki"
           },
-          "hiragana": {
-            "S": "つき"
+          "romaji": {
+            "S": "tsu"
           },
           "level": {
             "N": "4"
@@ -857,11 +864,11 @@
           "en": {
             "S": "letter"
           },
-          "jp": {
-            "S": "te"
+          "sample": {
+            "S": "tegami"
           },
-          "hiragana": {
-            "S": "てがみ"
+          "romaji": {
+            "S": "te"
           },
           "level": {
             "N": "4"
@@ -895,11 +902,11 @@
           "en": {
             "S": "friend"
           },
-          "jp": {
-            "S": "to"
+          "sample": {
+            "S": "tomodachi"
           },
-          "hiragana": {
-            "S": "ともだち"
+          "romaji": {
+            "S": "to"
           },
           "level": {
             "N": "4"
@@ -933,11 +940,11 @@
           "en": {
             "S": "crying"
           },
-          "jp": {
-            "S": "na"
+          "sample": {
+            "S": "naku"
           },
-          "hiragana": {
-            "S": "なく"
+          "romaji": {
+            "S": "na"
           },
           "level": {
             "N": "5"
@@ -971,11 +978,11 @@
           "en": {
             "S": "carrot"
           },
-          "jp": {
-            "S": "ni"
+          "sample": {
+            "S": "ninjin"
           },
-          "hiragana": {
-            "S": "にんじん"
+          "romaji": {
+            "S": "ni"
           },
           "level": {
             "N": "5"
@@ -1009,11 +1016,11 @@
           "en": {
             "S": "stuffed animal"
           },
-          "jp": {
-            "S": "nu"
+          "sample": {
+            "S": "nuigurumi"
           },
-          "hiragana": {
-            "S": "ぬいぐるみ"
+          "romaji": {
+            "S": "nu"
           },
           "level": {
             "N": "5"
@@ -1047,11 +1054,11 @@
           "en": {
             "S": "cat"
           },
-          "jp": {
-            "S": "ne"
+          "sample": {
+            "S": "neko"
           },
-          "hiragana": {
-            "S": "ねこ"
+          "romaji": {
+            "S": "ne"
           },
           "level": {
             "N": "5"
@@ -1085,11 +1092,11 @@
           "en": {
             "S": "seaweed"
           },
-          "jp": {
-            "S": "no"
+          "sample": {
+            "S": "nori"
           },
-          "hiragana": {
-            "S": "のり"
+          "romaji": {
+            "S": "no"
           },
           "level": {
             "N": "5"
@@ -1123,7 +1130,7 @@
           "en": {
             "S": "white"
           },
-          "jp": {
+          "romaji": {
             "S": "shiro"
           },
           "level": {
@@ -1158,7 +1165,7 @@
           "en": {
             "S": "red"
           },
-          "jp": {
+          "romaji": {
             "S": "aka"
           },
           "level": {
@@ -1193,7 +1200,7 @@
           "en": {
             "S": "gold"
           },
-          "jp": {
+          "romaji": {
             "S": "kin"
           },
           "level": {
@@ -1228,7 +1235,7 @@
           "en": {
             "S": "lion"
           },
-          "jp": {
+          "romaji": {
             "S": "rion"
           },
           "level": {
@@ -1263,7 +1270,7 @@
           "en": {
             "S": "cat"
           },
-          "jp": {
+          "romaji": {
             "S": "neko"
           },
           "level": {
