@@ -59,8 +59,8 @@ en       | string | false    | The card word in English
 romaji   | string | false    | The card word in Romaji
 level    | number | false    | The card difficulty level from 1 to 10
 category | string | false    | The card category (eg. numbers, animals, colors)
-hiragana | string | false    | The card word in hiragana format
-katakana | string | true     | The card word in katakana format, if available
+sample   | string | true     | A sample word (used for learning hiragana and katakana cards)
+image    | string | true     | A mnemonic image for the card
 
 ### Card layouts
 
