@@ -1,8 +1,8 @@
-import { ApolloProvider } from './ApolloProvider';
+import { ApolloWrapper } from '../ApolloWrapper';
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
-    <ApolloProvider>
+    <ApolloWrapper>
       <div className="flex flex-col min-h-screen">
         <header className="bg-blue-500 text-white p-4">
           <h1 className="text-2xl font-semibold">JP-FlashCard</h1>
@@ -42,6 +42,6 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
           </div>
         </footer>
       </div>
-    </ApolloProvider>
+    </ApolloWrapper>
   );
 }

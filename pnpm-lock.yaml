@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@apollo/client': ^3.7.11
+  '@apollo/experimental-nextjs-app-support': ^0.4.3
   '@apollo/server': ^4.6.0
   '@as-integrations/next': ^1.3.0
   '@aws-sdk/client-dynamodb': ^3.309.0
@@ -42,12 +43,13 @@ specifiers:
   serverless-dynamodb-local: ^0.2.40
   serverless-offline: ^12.0.4
   tailwindcss: ^3.3.1
+  ts-invariant: ^0.10.3
   ts-node: ^10.9.1
   typescript: 5.0.3
-  ulid: ^2.3.0
 
 dependencies:
   '@apollo/client': 3.7.11_gdcq4dv6opitr3wbfwyjmanyra
+  '@apollo/experimental-nextjs-app-support': 0.4.3_capvn26nusfskn3safeydfncxu
   '@apollo/server': 4.6.0_rjjjs2nwgns3bcvnnqb5eu5nry
   '@as-integrations/next': 1.3.0_2dtcxmh5exhbdmqwe7vgkryeja
   '@aws-sdk/client-dynamodb': 3.309.0_aws-crt@1.15.13
@@ -59,7 +61,7 @@ dependencies:
   next: 13.2.4_z72xxk7vwlamvgqemvc4ptm4du
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
-  ulid: 2.3.0
+  ts-invariant: 0.10.3
 
 devDependencies:
   '@aws-sdk/types': 3.306.0
@@ -156,6 +158,21 @@ packages:
       ts-invariant: 0.10.3
       tslib: 2.5.0
       zen-observable-ts: 1.2.5
+    dev: false
+
+  /@apollo/experimental-nextjs-app-support/0.4.3_capvn26nusfskn3safeydfncxu:
+    resolution: {integrity: sha512-UrgLMUIW7SFmeJyLvqh0E8KRvo6Nd/zzbUFt0ENT3BRa7z7kGsCk7I+kZEZEAn13nqlTC3M4VPS6tOfvtLFhxQ==}
+    peerDependencies:
+      '@apollo/client': '>=3.8.0-rc || ^3.8.0'
+      next: ^13.4.1
+      react: ^18
+    dependencies:
+      '@apollo/client': 3.7.11_gdcq4dv6opitr3wbfwyjmanyra
+      next: 13.2.4_z72xxk7vwlamvgqemvc4ptm4du
+      react: 18.2.0
+      server-only: 0.0.1
+      superjson: 1.13.3
+      ts-invariant: 0.10.3
     dev: false
 
   /@apollo/protobufjs/1.2.7:
@@ -5236,6 +5253,13 @@ packages:
     resolution: {integrity: sha512-LDx6oHrK+PhzLKJU9j5S7/Y3jM/mUHvD/DeI1WQmJn652iPC5Y4TBzC9l+5OMOXlyTTA+SmVUPm0HQUwpD5Jqw==}
     dev: true
 
+  /copy-anything/3.0.5:
+    resolution: {integrity: sha512-yCEafptTtb4bk7GLEQoM8KVJpxAfdBJYaXyzQEgQQQgYrZiDp8SJmGKlYza6CYjEDNstAdNdKA3UuoULlEbS6w==}
+    engines: {node: '>=12.13'}
+    dependencies:
+      is-what: 4.1.15
+    dev: false
+
   /core-util-is/1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
 
@@ -7616,6 +7640,11 @@ packages:
       call-bind: 1.0.2
       get-intrinsic: 1.2.0
     dev: true
+
+  /is-what/4.1.15:
+    resolution: {integrity: sha512-uKua1wfy3Yt+YqsD6mTUEa2zSi3G1oPlqTflgaPJ7z63vUGN5pxFpnQfeSLMFnJDEsdvOtkp1rUWkYjB4YfhgA==}
+    engines: {node: '>=12.13'}
+    dev: false
 
   /is-windows/1.0.2:
     resolution: {integrity: sha512-eXK1UInq2bPmjyX6e3VHIzMLobc4J94i4AWn+Hpq3OU5KkrRC96OAcR3PRJ/pGu6m8TRnBHP9dkXQVsT/COVIA==}
@@ -10301,6 +10330,10 @@ packages:
       - supports-color
     dev: false
 
+  /server-only/0.0.1:
+    resolution: {integrity: sha512-qepMx2JxAa5jjfzxG79yPPq+8BuFToHd1hm7kI+Z4zAq1ftQiP7HcxMhDDItrbtwVeLg/cY2JnKnrcFkmiswNA==}
+    dev: false
+
   /serverless-dynamodb-local/0.2.40:
     resolution: {integrity: sha512-8wPtFxeJnRKTN3u8x1jG7Cs5VlkO0GkUPfb+DCKIDzjGM5n+qjHXoVsr4YZ/TPwET9kMUgH1Jv39oaEyeSJvYQ==}
     engines: {node: '>=4.0'}
@@ -10877,6 +10910,13 @@ packages:
       - supports-color
     dev: true
 
+  /superjson/1.13.3:
+    resolution: {integrity: sha512-mJiVjfd2vokfDxsQPOwJ/PtanO87LhpYY88ubI5dUB1Ab58Txbyje3+jpm+/83R/fevaq/107NNhtYBLuoTrFg==}
+    engines: {node: '>=10'}
+    dependencies:
+      copy-anything: 3.0.5
+    dev: false
+
   /supports-color/5.5.0:
     resolution: {integrity: sha512-QjVjwdXIt408MIiAqCX4oUKsgU2EqAGzs2Ppkm4aQYbjm+ZEWEcW4SfFNTr4uMNZma0ey4f5lgLrkB0aX0QMow==}
     engines: {node: '>=4'}
@@ -11275,11 +11315,6 @@ packages:
   /ua-parser-js/0.7.35:
     resolution: {integrity: sha512-veRf7dawaj9xaWEu9HoTVn5Pggtc/qj+kqTOFvNiN1l0YdxwC1kvel57UCjThjGa3BHBihE8/UJAHI+uQHmd/g==}
     dev: true
-
-  /ulid/2.3.0:
-    resolution: {integrity: sha512-keqHubrlpvT6G2wH0OEfSW4mquYRcbe/J8NMmveoQOjUqmo+hXtO+ORCpWhdbZ7k72UtY61BL7haGxW6enBnjw==}
-    hasBin: true
-    dev: false
 
   /unbox-primitive/1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}
