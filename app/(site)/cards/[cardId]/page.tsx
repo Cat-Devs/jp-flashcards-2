@@ -5,18 +5,19 @@ import { getClient } from '@/app/ApolloClient';
 
 export const dynamic = 'force-dynamic';
 
-const GET_CARD = gql(/* GraphQL */ `
+const GET_CARD = gql/* GraphQL */ `
   query getCard($cardId: String!) {
     card(cardId: $cardId) {
       id
       en
-      jp
-      hiragana
+      romaji
       category
       level
+      sample
+      image
     }
   }
-`);
+`;
 
 export default async function Page({ params }: { params: { cardId: string } }) {
   const { data } = await getClient().query<GetCardQuery, GetCardQueryVariables>({

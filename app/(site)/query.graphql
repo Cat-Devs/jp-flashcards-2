@@ -1,9 +1,11 @@
-query GetCard($cardId: String!) {
+query getCard($cardId: String!) {
   card(cardId: $cardId) {
-    en
     id
+    en
+    romaji
     category
-    hiragana
     level
+    sample
+    image
   }
 }

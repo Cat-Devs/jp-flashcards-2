@@ -21,9 +21,6 @@ type Card {
   level: Int
   en: String
   sample: String
-  kana: String
-  hiragana: String
-  katakana: String
   romaji: String
   image: String
 }

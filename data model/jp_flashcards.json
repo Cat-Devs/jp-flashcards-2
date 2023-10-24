@@ -43,6 +43,10 @@
           "AttributeType": "S"
         },
         {
+          "AttributeName": "cardId",
+          "AttributeType": "S"
+        },
+        {
           "AttributeName": "en",
           "AttributeType": "S"
         },
@@ -67,7 +71,7 @@
           "AttributeType": "N"
         },
         {
-          "AttributeName": "cardId",
+          "AttributeName": "image",
           "AttributeType": "S"
         },
         {
@@ -76,10 +80,6 @@
         },
         {
           "AttributeName": "email",
-          "AttributeType": "S"
-        },
-        {
-          "AttributeName": "image",
           "AttributeType": "S"
         }
       ],

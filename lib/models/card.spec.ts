@@ -2,7 +2,7 @@ import { CardItem } from './card';
 
 describe('CardItem', () => {
   it('should create a Card item', () => {
-    const testCard = new CardItem(undefined, 'en', 'romaji', 'category', 1);
+    const testCard = new CardItem(undefined, 'en', 'category', 1, 'romaji', 'sample', 'image');
 
     expect(testCard.entityType).toBe('Card');
   });

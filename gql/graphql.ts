@@ -13,15 +13,16 @@ export type Scalars = {
 };
 
 export type Card = {
-  __typename?: 'Card';
   category?: Maybe<Scalars['String']>;
   en?: Maybe<Scalars['String']>;
   hiragana?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
+  image?: Maybe<Scalars['String']>;
   kana?: Maybe<Scalars['String']>;
   katakana?: Maybe<Scalars['String']>;
   level?: Maybe<Scalars['Int']>;
   romaji?: Maybe<Scalars['String']>;
+  sample?: Maybe<Scalars['String']>;
 };
 
 export type CardsInput = {
@@ -36,7 +37,6 @@ export type CreateUserInput = {
 };
 
 export type Mutation = {
-  __typename?: 'Mutation';
   createUser?: Maybe<User>;
 };
 
@@ -46,7 +46,6 @@ export type MutationCreateUserArgs = {
 };
 
 export type Query = {
-  __typename?: 'Query';
   card?: Maybe<Card>;
   cards: Array<Maybe<Card>>;
   user?: Maybe<User>;
@@ -74,14 +73,12 @@ export type QueryUserCardsArgs = {
 };
 
 export type User = {
-  __typename?: 'User';
   email?: Maybe<Scalars['String']>;
   name?: Maybe<Scalars['String']>;
   username: Scalars['ID'];
 };
 
 export type UserCards = {
-  __typename?: 'UserCards';
   accuracy?: Maybe<Scalars['Int']>;
   cardId: Scalars['String'];
 };
@@ -91,4 +88,4 @@ export type GetCardQueryVariables = Exact<{
 }>;
 
 
-export type GetCardQuery = { __typename?: 'Query', card?: { __typename?: 'Card', en?: string | null, id: string, category?: string | null, hiragana?: string | null, level?: number | null } | null };
+export type GetCardQuery = { card?: { id: string, en?: string | null, romaji?: string | null, category?: string | null, level?: number | null, sample?: string | null, image?: string | null } | null };

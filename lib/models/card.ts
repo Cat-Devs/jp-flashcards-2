@@ -1,4 +1,3 @@
-import { toHiragana, toKana, toKatakana } from 'wanakana';
 import { Item } from './base';
 
 export class CardItem extends Item {
@@ -7,19 +6,16 @@ export class CardItem extends Item {
   level: number;
   romaji?: string;
   sample?: string;
-  kana?: string;
-  hiragana?: string;
-  katakana?: string;
   image?: string;
 
   constructor(
     id?: string,
     en?: string,
+    category?: string,
+    level?: number,
     romaji?: string,
     sample?: string,
-    category?: string,
-    image?: string,
-    level?: number
+    image?: string
   ) {
     super('Card', id);
     this.en = en || '';
@@ -28,15 +24,6 @@ export class CardItem extends Item {
     this.romaji = romaji;
     this.sample = sample;
     this.image = image;
-
-    if (sample) {
-      this.sample = toKana(sample);
-    }
-    if (romaji) {
-      this.kana = toKana(romaji);
-      this.hiragana = toHiragana(romaji);
-      this.katakana = toKatakana(romaji);
-    }
   }
 
   static fromItem(item?: Record<string, any>): CardItem {
@@ -46,7 +33,7 @@ export class CardItem extends Item {
 
     const { PK, en, romaji, sample, category, image, level } = item;
     const id = `${PK}`.replace('c#', '');
-    return new CardItem(id, en, romaji, sample, category, image, level);
+    return new CardItem(id, en, category, level, romaji, sample, image);
   }
 
   get pk(): string {
@@ -67,6 +54,7 @@ export class CardItem extends Item {
       romaji: this.romaji,
       sample: this.sample,
       level: this.level,
+      image: this.image,
     };
   }
 }
