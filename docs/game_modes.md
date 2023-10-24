@@ -2,6 +2,8 @@
 
 - [Game modes](#game-modes)
   - [Learning](#learning)
+  - [Hiragana](#hiragana)
+  - [Katakana](#katakana)
   - [Strength](#strength)
   - [Fast Game](#fast-game)
 
@@ -10,8 +12,10 @@ Any user will be able to choose the game mode before starting a new game.
 The available game modes are the following:
 
 1. Learning
-2. Strength
-3. Fast game
+2. Hiragana
+3. Katakana
+4. Strength
+5. Fast game
 
 ### Learning
 
@@ -21,6 +25,17 @@ The available game modes are the following:
 * Every time a user completes a card, a user's card will be created if not already existing in the database.
 * Every time a user completes a card, the user's weak cards deck will be updated accordingly.
 * Once the level 1 is completed, the user will be upgraded to a User Level 2 and so on until the completion of all the levels.
+
+### Hiragana
+
+* A user will start with a deck of 5 cards.
+* The cards will be picked from the "hiragana" category and grouped by level. Every level contains the
+letters for that hiragana chart group (eg. ka, ki, ku, ke, ko will be part of hiragana level 2)
+* The game progresses like in the learning mode to allow the user to complete all the hiragana cards available.
+
+### Katakana
+
+* Same as the Hiragana mode but using the Katakana category group.
 
 ### Strength
 
