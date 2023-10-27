@@ -42,8 +42,8 @@ NAME | Description
 -| -|
 NEXT_PUBLIC_GRAPHQL_API_URL | The GraphQL Server URL
 GRAPHQL_API_KEY | The API Key for your GraphQL Server
-CARDS_TABLE_NAME | Your Flashcards DynamoDB table name
-DB_REGION | The AWS region for your DynamoDB table
+DB_TABLE_NAME | Your Flashcards DynamoDB table name
+AWS_REGION | The AWS region for your resources
 OFFLINE | When is set to `true` it will use a local DynamoDB instance
 
 ## Local DynamoDB

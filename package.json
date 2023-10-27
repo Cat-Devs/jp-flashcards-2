@@ -5,7 +5,11 @@
   "scripts": {
     "postinstall": "sls dynamodb install",
     "dev": "pnpm codegen && next dev",
-    "localdb": "sls dynamodb start",
+    "sls:offline": "serverless offline start",
+    "sls:deploy:stage": "sls deploy --aws-profile serverless-admin --stage stage",
+    "sls:remove:stage": "sls remove --aws-profile serverless-admin --stage stage",
+    "sls:deploy:prod": "sls deploy --aws-profile serverless-admin --stage prod",
+    "sls:remove:prod": "sls remove --aws-profile serverless-admin --stage prod",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -14,7 +18,8 @@
     "test:coverage": "jest --coverage",
     "test:ci": "jest --ci",
     "codegen:watch": "graphql-codegen --require dotenv/config --watch",
-    "migrate": "node migrate.js"
+    "migrate": "node scripts/migrate.js",
+    "dynamo:upload": "node scripts/dynamo-upload.js"
   },
   "dependencies": {
     "@apollo/client": "^3.7.11",
@@ -22,6 +27,7 @@
     "@apollo/server": "^4.6.0",
     "@as-integrations/next": "^1.3.0",
     "@aws-sdk/client-dynamodb": "^3.309.0",
+    "@aws-sdk/client-s3": "^3.435.0",
     "@aws-sdk/lib-dynamodb": "^3.309.0",
     "@aws-sdk/smithy-client": "^3.309.0",
     "aws-crt": "^1.15.13",
@@ -64,6 +70,7 @@
     "serverless": "^3.30.1",
     "serverless-dynamodb-local": "^0.2.40",
     "serverless-offline": "^12.0.4",
+    "serverless-s3-local": "^0.8.1",
     "tailwindcss": "^3.3.1",
     "ts-node": "^10.9.1",
     "typescript": "5.0.3"
