@@ -17,7 +17,8 @@
     "test:coverage": "jest --coverage",
     "test:ci": "jest --ci",
     "codegen:watch": "graphql-codegen --require dotenv/config --watch",
-    "sls:localdb:migrate": "node scripts/migrate.js",
+    "local:db:migrate": "node scripts/migrate.js",
+    "local:assets:migrate": "node scripts/migrate-local-assets.js",
     "dynamo:upload": "node scripts/dynamo-upload.js"
   },
   "dependencies": {

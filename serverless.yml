@@ -17,14 +17,7 @@ custom:
   bucket: '${env:BUCKET_NAME, self:custom.service}-${self:custom.stage}'
   table: '${env:TABLE_NAME, self:custom.service}-${self:custom.stage}'
   s3:
-    host: localhost
     directory: assets
-    port: 4569
-  s3local:
-    host: ${self:custom.s3.host}
-    port: ${self:custom.s3.port}
-    cors: '*'
-    imageUpload: true
   dynamodb:
     stages:
       - dev
@@ -41,22 +34,6 @@ custom:
         sources:
           - table: ${self:custom.table}
             sources: [offline/migrations/flashcards-seed.json]
-
-  iam:
-    role:
-      name: ${self:service}-${self:provider.stage}-role
-      statements:
-        - Effect: Allow
-          Action:
-            - s3:GetObject
-          Resource:
-            - "arn:aws:s3:::${self:custom.bucket}/*"
-      # - Effect: Allow
-      #   Action:
-      #     - dynamodb:Query
-      #     - dynamodb:Scan
-      #   Resource:
-      #     - Fn::GetAtt: [ UsersTable, Arn ]
 
 resources:
   Resources:

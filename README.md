@@ -44,13 +44,14 @@ NEXT_PUBLIC_GRAPHQL_API_URL | The GraphQL Server URL
 GRAPHQL_API_KEY | The API Key for your GraphQL Server
 TABLE_NAME | Your Flashcards DynamoDB table name
 AWS_REGION | The AWS region for your resources
-OFFLINE | When is set to `true` it will use a local DynamoDB instance
+TABLE_OFFLINE | When is set to `true` it will use a local DynamoDB instance
+BUCKET_OFFLINE | When is set to `true` it will use a local S3 instance
 
 ## Local DynamoDB
 
 This project makes use of a mock database for local development.
 
-Just set the `OFFLINE=true` inside your `.env` to get started.
+Just set the `TABLE_OFFLINE=true` inside your `.env` to get started.
 Then all the database requests will be mocked and you don't need to create any
 real DynamoDB table.
 
