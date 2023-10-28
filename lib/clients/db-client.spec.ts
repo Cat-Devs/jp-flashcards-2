@@ -1,10 +1,11 @@
-import { getClient } from './client';
+import { getDbClient } from './db-client';
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
+
 jest.mock('@aws-sdk/client-dynamodb');
 jest.mock('@aws-sdk/lib-dynamodb');
 
-describe('client', () => {
+describe('DbClient', () => {
   let originalEnv = process.env;
   beforeEach(() => {
     originalEnv = process.env;
@@ -18,7 +19,7 @@ describe('client', () => {
     const testClientInstance = { test: true };
     (DynamoDBDocumentClient.from as jest.Mock).mockImplementationOnce(() => testClientInstance);
 
-    const res = getClient(true);
+    const res = getDbClient(true);
 
     expect(DynamoDBDocumentClient.from).toBeCalled();
     expect(res).toBe(testClientInstance);
@@ -29,7 +30,7 @@ describe('client', () => {
     (DynamoDBDocumentClient.from as jest.Mock).mockImplementationOnce(() => {});
     process.env.OFFLINE = 'true';
 
-    getClient(true);
+    getDbClient(true);
 
     expect(DynamoDBClient).toBeCalledWith({
       endpoint: 'http://localhost:8000',
@@ -42,9 +43,9 @@ describe('client', () => {
     (DynamoDBClient as jest.Mock).mockReturnValueOnce({});
     (DynamoDBDocumentClient.from as jest.Mock).mockImplementationOnce(() => {});
     process.env.OFFLINE = 'false';
-    process.env.DB_REGION = testRegion;
+    process.env.AWS_REGION = testRegion;
 
-    getClient(true);
+    getDbClient(true);
 
     expect(DynamoDBClient).toBeCalledWith({ region: testRegion });
   });
@@ -54,8 +55,8 @@ describe('client', () => {
     (DynamoDBDocumentClient.from as jest.Mock).mockImplementationOnce(() => testClientInstance);
     process.env.OFFLINE = 'true';
 
-    getClient(true);
-    getClient();
+    getDbClient(true);
+    getDbClient();
 
     expect(DynamoDBClient).toBeCalledTimes(1);
     expect(DynamoDBDocumentClient.from).toBeCalledTimes(1);

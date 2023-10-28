@@ -3,6 +3,7 @@ import { DynamoDBDocumentClient, QueryCommand, QueryCommandInput } from '@aws-sd
 import { mockClient } from 'aws-sdk-client-mock';
 import { getUserCards } from './userCards';
 import { UserItem } from '../models/user';
+import { TABLE_NAME } from '../config';
 
 describe('userCards', () => {
   const ddbMock = mockClient(DynamoDBDocumentClient);
@@ -22,7 +23,7 @@ describe('userCards', () => {
       const testUserName = 'test-user';
       const userItem = new UserItem(testUserName);
       const testQueryParams: QueryCommandInput = {
-        TableName: process.env.CARDS_TABLE_NAME as string,
+        TableName: TABLE_NAME,
         KeyConditionExpression: 'PK = :pk AND begins_with(SK, :sk)',
         ExpressionAttributeValues: {
           ':pk': userItem.pk,

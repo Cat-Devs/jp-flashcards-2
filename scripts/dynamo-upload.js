@@ -10,7 +10,7 @@ const client = new DynamoDBClient({ region: process.env.AWS_REGION });
 const ddbDocClient = DynamoDBDocumentClient.from(client);
 
 // Define your DynamoDB table name
-const tableName = process.env.AWS_DB_TABLE_NAME;
+const tableName = process.env.TABLE_NAME;
 
 // Function to insert data into DynamoDB
 async function insertData() {

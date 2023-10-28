@@ -1,18 +1,19 @@
 import { GetCommand, GetCommandInput, PutCommand, PutCommandInput } from '@aws-sdk/lib-dynamodb';
-import { getClient } from '../client';
+import { getDbClient } from '../clients/db-client';
 import { User } from '../../gql/graphql';
 import { UserItem } from '../models/user';
+import { TABLE_NAME } from '../config';
 
 export const createUser = async (username: string, name: string, email: string): Promise<User> => {
   const user = new UserItem(username, name, email);
   const params: PutCommandInput = {
-    TableName: `${process.env.CARDS_TABLE_NAME}`,
+    TableName: TABLE_NAME,
     ConditionExpression: 'attribute_not_exists(PK)',
     Item: user.toItem(),
   };
 
   try {
-    const client = getClient();
+    const client = getDbClient();
     await client.send(new PutCommand(params));
     return user;
   } catch (err) {
@@ -23,12 +24,12 @@ export const createUser = async (username: string, name: string, email: string):
 export const getUser = async (username: string): Promise<UserItem> => {
   const user = new UserItem(username);
   const params: GetCommandInput = {
-    TableName: process.env.CARDS_TABLE_NAME as string,
+    TableName: TABLE_NAME,
     Key: user.keys(),
   };
 
   try {
-    const client = getClient();
+    const client = getDbClient();
     const data = await client.send(new GetCommand(params));
 
     if (!data?.Item) {

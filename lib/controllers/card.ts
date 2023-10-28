@@ -1,18 +1,20 @@
 import { Card } from '@/gql/graphql';
 import { GetCommand, GetCommandInput, QueryCommandInput, QueryCommand } from '@aws-sdk/lib-dynamodb';
-import { getClient } from '../client';
+import { getDbClient } from '../clients/db-client';
 import { CardItem } from '../models/card';
+import { getImage } from '../helpers/get-image';
+import { BUCKET_NAME, TABLE_NAME } from '../config';
 
 export const getCard = async (cardId: string): Promise<Card> => {
   const card = new CardItem(cardId);
 
   const params: GetCommandInput = {
-    TableName: process.env.CARDS_TABLE_NAME as string,
+    TableName: TABLE_NAME,
     Key: card.keys(),
   };
 
   try {
-    const client = getClient();
+    const client = getDbClient();
     const data = await client.send(new GetCommand(params));
 
     if (!data.Item) {
@@ -20,7 +22,11 @@ export const getCard = async (cardId: string): Promise<Card> => {
       return {} as unknown as Card;
     }
 
-    return CardItem.fromItem(data.Item);
+    const image = await getImage(BUCKET_NAME, data.Item.image);
+    return CardItem.fromItem({
+      ...data.Item,
+      image,
+    });
   } catch (err) {
     throw err;
   }
@@ -28,7 +34,7 @@ export const getCard = async (cardId: string): Promise<Card> => {
 
 export const getCardsByLevelAndCategory = async (level: number, category: string): Promise<Array<Card>> => {
   const params: QueryCommandInput = {
-    TableName: process.env.CARDS_TABLE_NAME as string,
+    TableName: TABLE_NAME,
     IndexName: 'GSI2',
     KeyConditionExpression: '#PK = :pk and #SK = :sk',
     ExpressionAttributeNames: {
@@ -42,7 +48,7 @@ export const getCardsByLevelAndCategory = async (level: number, category: string
   };
 
   try {
-    const client = getClient();
+    const client = getDbClient();
     const data = await client.send(new QueryCommand(params));
     if (!data.Items?.length) {
       console.log('No items found');
@@ -58,7 +64,7 @@ export const getCardsByLevelAndCategory = async (level: number, category: string
 
 export const getCardsByCategory = async (category: string): Promise<Array<Card>> => {
   const params: QueryCommandInput = {
-    TableName: process.env.CARDS_TABLE_NAME as string,
+    TableName: TABLE_NAME,
     IndexName: 'GSI2',
     KeyConditionExpression: '#PK = :pk and begins_with(#SK, :sk)',
     ExpressionAttributeNames: {
@@ -72,7 +78,7 @@ export const getCardsByCategory = async (category: string): Promise<Array<Card>>
   };
 
   try {
-    const client = getClient();
+    const client = getDbClient();
     const data = await client.send(new QueryCommand(params));
     if (!data.Items?.length) {
       console.log('No items found');
@@ -88,7 +94,7 @@ export const getCardsByCategory = async (category: string): Promise<Array<Card>>
 
 export const getCardsByLevel = async (level: number): Promise<Array<Card>> => {
   const params: QueryCommandInput = {
-    TableName: process.env.CARDS_TABLE_NAME as string,
+    TableName: TABLE_NAME,
     IndexName: 'GSI1',
     KeyConditionExpression: '#PK = :pk and begins_with(#SK, :sk)',
     ExpressionAttributeNames: {
@@ -102,7 +108,7 @@ export const getCardsByLevel = async (level: number): Promise<Array<Card>> => {
   };
 
   try {
-    const client = getClient();
+    const client = getDbClient();
     const data = await client.send(new QueryCommand(params));
     if (!data.Items?.length) {
       console.log('No items found');

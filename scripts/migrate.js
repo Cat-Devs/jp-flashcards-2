@@ -1,6 +1,7 @@
 const fs = require('fs');
-const dataModel = require('./data model/jp_flashcards.json');
-const FLASHCARDS_SEED = __dirname + '/offline/migrations/flashcards-seed.json';
+const path = require('path');
+const dataModel = require('../data model/jp_flashcards.json');
+const FLASHCARDS_SEED = path.resolve(__dirname, '../offline/migrations/flashcards-seed.json');
 
 let data = [];
 

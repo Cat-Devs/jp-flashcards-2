@@ -1,13 +1,14 @@
 import { Card } from '@/gql/graphql';
 import { QueryCommand, QueryCommandInput } from '@aws-sdk/lib-dynamodb';
-import { getClient } from '../client';
+import { getDbClient } from '../clients/db-client';
 import { UserCardsItem } from '../models/userCards';
 import { UserItem } from '../models/user';
+import { TABLE_NAME } from '../config';
 
 export const getUserCards = async (username: string): Promise<Array<Card>> => {
   const userItem = new UserItem(username);
   const params: QueryCommandInput = {
-    TableName: process.env.CARDS_TABLE_NAME as string,
+    TableName: TABLE_NAME,
     KeyConditionExpression: 'PK = :pk AND begins_with(SK, :sk)',
     ExpressionAttributeValues: {
       ':pk': userItem.pk,
@@ -16,7 +17,7 @@ export const getUserCards = async (username: string): Promise<Array<Card>> => {
   };
 
   try {
-    const client = getClient();
+    const client = getDbClient();
     const data = await client.send(new QueryCommand(params));
 
     if (!data?.Items) {

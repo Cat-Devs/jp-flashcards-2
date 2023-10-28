@@ -39,3 +39,8 @@ next-env.d.ts
 # Serverless
 .serverless
 .dynamodb
+
+# NextJS
+/.next
+/.build
+/.swc

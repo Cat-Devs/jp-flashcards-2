@@ -9,10 +9,11 @@ interface Props {
 
 export const Card = ({ data }: Props) => {
   const [showBack, setShowBack] = useState(false);
-
   const handleCheckAnswer = () => {
     setShowBack(true);
   };
+
+  const dataUrl = `data:image/png;base64,${data.image}`;
 
   return (
     <div className="bg-slate-600 text-white shadow-lg p-4 w-64 mx-auto rounded-lg mt-6">
@@ -22,8 +23,8 @@ export const Card = ({ data }: Props) => {
         <p>{data.level}</p>
       </div>
       <div className={`back p-4 ${showBack ? '' : 'hidden'}`}>
-        <h2 className="text-2xl font-bold">{data.jp}</h2>
-        <img src={''} alt="Japanese Image" className="mt-4" />
+        <h2 className="text-2xl font-bold">{data.romaji}</h2>
+        <img src={dataUrl} alt="Japanese Image" className="mt-4" />
       </div>
       <button onClick={handleCheckAnswer}>Check Answer</button>
     </div>

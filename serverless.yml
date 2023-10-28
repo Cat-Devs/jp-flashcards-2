@@ -10,12 +10,12 @@ provider:
   name: aws
   runtime: nodejs16.x
   stage: ${opt:stage, 'dev'}
-  environment:
-    tableName: { Ref: FlashcardsTable }
 
 custom:
-  service: ${self:service}
-  stage: ${self:provider.stage}
+  service: '${self:service}'
+  stage: '${self:provider.stage}'
+  bucket: '${env:BUCKET_NAME, self:custom.service}-${self:custom.stage}'
+  table: '${env:TABLE_NAME, self:custom.service}-${self:custom.stage}'
   s3:
     host: localhost
     directory: assets
@@ -39,12 +39,24 @@ custom:
     seed:
       domain:
         sources:
-          - table: '${self:custom.service}-${self:custom.stage}'
+          - table: ${self:custom.table}
             sources: [offline/migrations/flashcards-seed.json]
-    dynamodbSeed:
-      sources:
-        - table: '${self:custom.service}-${self:custom.stage}'
-          sources: [offline/migrations/flashcards-seed.json]
+
+  iam:
+    role:
+      name: ${self:service}-${self:provider.stage}-role
+      statements:
+        - Effect: Allow
+          Action:
+            - s3:GetObject
+          Resource:
+            - "arn:aws:s3:::${self:custom.bucket}/*"
+      # - Effect: Allow
+      #   Action:
+      #     - dynamodb:Query
+      #     - dynamodb:Scan
+      #   Resource:
+      #     - Fn::GetAtt: [ UsersTable, Arn ]
 
 resources:
   Resources:
@@ -52,12 +64,12 @@ resources:
       Type: AWS::S3::Bucket
       Properties:
         BucketName:
-          Fn::Sub: '${self:custom.service}-${self:custom.stage}'
+          Fn::Sub: ${self:custom.bucket}
 
     FlashcardsTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: '${self:custom.service}-${self:custom.stage}'
+        TableName: ${self:custom.table}
         AttributeDefinitions:
           - AttributeName: PK
             AttributeType: S

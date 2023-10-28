@@ -9,6 +9,7 @@ import {
 import { mockClient } from 'aws-sdk-client-mock';
 import { getCard, getCardsByCategory, getCardsByLevel, getCardsByLevelAndCategory } from './card';
 import { CardItem } from '../models/card';
+import { TABLE_NAME } from '../config';
 
 describe('Card', () => {
   beforeEach(() => {
@@ -24,7 +25,7 @@ describe('Card', () => {
       const testCard = new CardItem(testCardId);
       ddbMock.on(GetCommand).resolves({ Item: { PK: testCardId } });
       const params: GetCommandInput = {
-        TableName: process.env.CARDS_TABLE_NAME as string,
+        TableName: TABLE_NAME,
         Key: testCard.keys(),
       };
 
@@ -70,7 +71,7 @@ describe('Card', () => {
       const testCategory = 'cats';
       ddbMock.on(QueryCommand).resolves({ Items: [testCard.toItem()] });
       const params: QueryCommandInput = {
-        TableName: process.env.CARDS_TABLE_NAME as string,
+        TableName: TABLE_NAME,
         IndexName: 'GSI2',
         KeyConditionExpression: '#PK = :pk and begins_with(#SK, :sk)',
         ExpressionAttributeNames: {
@@ -135,7 +136,7 @@ describe('Card', () => {
       const testLevel = 1;
       ddbMock.on(QueryCommand).resolves({ Items: [testCard.toItem()] });
       const params: QueryCommandInput = {
-        TableName: process.env.CARDS_TABLE_NAME as string,
+        TableName: TABLE_NAME,
         IndexName: 'GSI1',
         KeyConditionExpression: '#PK = :pk and begins_with(#SK, :sk)',
         ExpressionAttributeNames: {
@@ -203,7 +204,7 @@ describe('Card', () => {
         Items: [testCard.toItem()],
       });
       const params: QueryCommandInput = {
-        TableName: process.env.CARDS_TABLE_NAME as string,
+        TableName: TABLE_NAME,
         IndexName: 'GSI2',
         KeyConditionExpression: '#PK = :pk and #SK = :sk',
         ExpressionAttributeNames: {

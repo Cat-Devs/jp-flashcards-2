@@ -15,11 +15,8 @@ export type Scalars = {
 export type Card = {
   category?: Maybe<Scalars['String']>;
   en?: Maybe<Scalars['String']>;
-  hiragana?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
   image?: Maybe<Scalars['String']>;
-  kana?: Maybe<Scalars['String']>;
-  katakana?: Maybe<Scalars['String']>;
   level?: Maybe<Scalars['Int']>;
   romaji?: Maybe<Scalars['String']>;
   sample?: Maybe<Scalars['String']>;

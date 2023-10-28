@@ -3,6 +3,7 @@ import { mockClient } from 'aws-sdk-client-mock';
 import { DynamoDBDocumentClient, GetCommand, QueryCommand, PutCommandInput, PutCommand } from '@aws-sdk/lib-dynamodb';
 import { createUser, getUser } from './user';
 import { UserItem } from '../models/user';
+import { TABLE_NAME } from '../config';
 
 describe('User', () => {
   const ddbMock = mockClient(DynamoDBDocumentClient);
@@ -56,7 +57,7 @@ describe('User', () => {
       const testEmail = 'test-email';
       const testUser = new UserItem(testUserName, testName, testEmail);
       const testPutParams: PutCommandInput = {
-        TableName: `${process.env.CARDS_TABLE_NAME}`,
+        TableName: TABLE_NAME,
         ConditionExpression: 'attribute_not_exists(PK)',
         Item: testUser.toItem(),
       };
