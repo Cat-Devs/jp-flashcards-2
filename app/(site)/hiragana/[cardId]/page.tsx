@@ -12,9 +12,9 @@ export default async function Page({ params }: { params: { cardId: string } }) {
     return <div>No card found</div>;
   }
 
-  const audioData = await textToSpeech(data.card.romaji);
+  const audioData = await textToSpeech(`${data.card.romaji}. ${data.card.sample}`);
 
   return (
-    <Card data={data.card} frontVariation={VariationEnum.A} backVariation={VariationEnum.B} audioData={audioData} />
+    <Card data={data.card} frontVariation={VariationEnum.C} backVariation={VariationEnum.A} audioData={audioData} />
   );
 }

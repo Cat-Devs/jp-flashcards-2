@@ -1,5 +1,6 @@
 import { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import { AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY } from '../config';
 
 let clientInstance: DynamoDBDocumentClient | undefined;
 
@@ -14,6 +15,10 @@ export const getDbClient = (force?: boolean): DynamoDBDocumentClient => {
   const client = new DynamoDBClient({
     region: REGION,
     ...(isOffline && { endpoint: 'http://localhost:8000' }),
+    credentials: {
+      accessKeyId: AWS_ACCESS_KEY_ID,
+      secretAccessKey: AWS_SECRET_ACCESS_KEY,
+    },
   });
 
   const marshallOptions = {

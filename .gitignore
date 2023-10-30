@@ -44,3 +44,4 @@ next-env.d.ts
 /.next
 /.build
 /.swc
+/assets/**

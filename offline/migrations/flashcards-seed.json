@@ -40,7 +40,7 @@
     "romaji": "i",
     "level": "1",
     "category": "hiragana",
-    "image": "strawberry.png"
+    "image": "strawberry.jpeg"
   },
   {
     "PK": "c#hgna3",
@@ -250,7 +250,8 @@
     "sample": "chizu",
     "romaji": "chi",
     "level": "4",
-    "category": "hiragana"
+    "category": "hiragana",
+    "image": "map.jpeg"
   },
   {
     "PK": "c#hgna18",
@@ -427,7 +428,8 @@
     "en": "cat",
     "romaji": "neko",
     "level": "1",
-    "category": "animals"
+    "category": "animals",
+    "image": "cat.jpeg"
   },
   {
     "PK": "u#user_001",
@@ -435,8 +437,8 @@
     "GSI1-PK": "uc#user_001",
     "GSI1-SK": "weak",
     "entityType": "UserCard",
-    "accuracy": "80",
     "cardId": "a65df",
+    "accuracy": "80",
     "username": "user_001"
   },
   {
@@ -445,8 +447,8 @@
     "GSI1-PK": "uc#user_001",
     "GSI1-SK": "strong",
     "entityType": "UserCard",
-    "accuracy": "100",
     "cardId": "r45tg",
+    "accuracy": "100",
     "username": "user_001"
   },
   {
@@ -455,8 +457,8 @@
     "GSI1-PK": "uc#user_002",
     "GSI1-SK": "weak",
     "entityType": "UserCard",
-    "accuracy": "10",
     "cardId": "a65df",
+    "accuracy": "10",
     "username": "user_002"
   }
 ]

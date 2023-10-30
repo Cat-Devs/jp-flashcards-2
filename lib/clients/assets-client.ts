@@ -7,7 +7,7 @@ export const createAssetsClient = () =>
     ...(isOffline && { endpoint: 'http://localhost:4569' }),
     forcePathStyle: true,
     credentials: {
-      accessKeyId: process.env.AWS_ACCESS_KEY_ID as string,
-      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY as string,
+      accessKeyId: 'S3RVER',
+      secretAccessKey: 'S3RVER',
     },
   });

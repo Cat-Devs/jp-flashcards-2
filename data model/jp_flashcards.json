@@ -3,7 +3,7 @@
   "ModelMetadata": {
     "Author": "andreasonny83",
     "DateCreated": "Apr 10, 2023, 12:52 PM",
-    "DateLastModified": "Oct 24, 2023, 03:53 PM",
+    "DateLastModified": "Oct 28, 2023, 03:29 PM",
     "Description": "jp_flashcards data model",
     "AWSService": "Amazon DynamoDB",
     "Version": "3.0"
@@ -228,7 +228,7 @@
             "S": "hiragana"
           },
           "image": {
-            "S": "strawberry.png"
+            "S": "strawberry.jpeg"
           }
         },
         {
@@ -799,6 +799,9 @@
           },
           "category": {
             "S": "hiragana"
+          },
+          "image": {
+            "S": "map.jpeg"
           }
         },
         {
@@ -1278,6 +1281,9 @@
           },
           "category": {
             "S": "animals"
+          },
+          "image": {
+            "S": "cat.jpeg"
           }
         },
         {
@@ -1296,11 +1302,11 @@
           "entityType": {
             "S": "UserCard"
           },
-          "accuracy": {
-            "N": "80"
-          },
           "cardId": {
             "S": "a65df"
+          },
+          "accuracy": {
+            "N": "80"
           },
           "username": {
             "S": "user_001"
@@ -1322,11 +1328,11 @@
           "entityType": {
             "S": "UserCard"
           },
-          "accuracy": {
-            "N": "100"
-          },
           "cardId": {
             "S": "r45tg"
+          },
+          "accuracy": {
+            "N": "100"
           },
           "username": {
             "S": "user_001"
@@ -1348,11 +1354,11 @@
           "entityType": {
             "S": "UserCard"
           },
-          "accuracy": {
-            "N": "10"
-          },
           "cardId": {
             "S": "a65df"
+          },
+          "accuracy": {
+            "N": "10"
           },
           "username": {
             "S": "user_002"

@@ -7,7 +7,14 @@ import {
   QueryUserArgs,
   QueryUserCardsArgs,
 } from '@/gql/graphql';
-import { getCard, createUser, getUser, getCardsByCategory, getCardsByLevel, getCardsByLevelAndCategory } from '@/lib';
+import {
+  getCard,
+  createUser,
+  getUser,
+  getCardsByCategory,
+  getCardsByLevel,
+  getCardsByLevelAndCategory,
+} from '@/lib/controllers';
 import { getUserCards } from '@/lib/controllers/userCards';
 
 export const resolvers = {
