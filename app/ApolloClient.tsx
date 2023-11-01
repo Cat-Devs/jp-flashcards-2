@@ -14,11 +14,11 @@ export const { getClient } = registerApolloClient(() => {
   return new ApolloClient({
     cache: new InMemoryCache(),
     link: new HttpLink({
-      uri: `${NEXT_PUBLIC_GRAPHQL_API_URL}/graphql`,
-      // fetchOptions: {
-      //   cache: 'default',
-      //   mode: 'same-origin',
-      // },
+      uri,
+      fetchOptions: {
+        cache: 'default',
+        mode: 'same-origin',
+      },
     }),
   });
 });
