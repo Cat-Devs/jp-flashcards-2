@@ -15,7 +15,12 @@ export default async function Page({ params }: { params: { cardId: string } }) {
     return <div>No card found</div>;
   }
 
-  logHelper('info', 'Card Page data', { id: data.card.id }, '...');
+  logHelper(
+    'info',
+    'Card Page data',
+    { id: data.card.id, image: data.card.image && data.card.image.substring(0, 10) },
+    '...'
+  );
   const audioData = await textToSpeech(`${toKana(data.card.romaji || '')}. ${toKana(data.card.sample || '')}`);
   logHelper('info', 'Card Page audioData', audioData?.[0], '...');
 
