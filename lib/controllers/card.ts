@@ -23,7 +23,7 @@ export const getCard = async (cardId: string): Promise<Card> => {
       return {} as unknown as Card;
     }
 
-    logHelper('trace', `Retrieved card: "${cardId}"`, { id: data.Item.id });
+    logHelper('info', `Retrieved card: "${cardId}"`, data.Item['PK'], data.Item['SK']);
 
     const image = await getImage(BUCKET_NAME, data.Item.image);
     logHelper('info', 'image', image && image.substring(0, 10), '...');

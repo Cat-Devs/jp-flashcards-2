@@ -16,7 +16,7 @@ export const { getClient } = registerApolloClient(() => {
     link: new HttpLink({
       uri,
       fetchOptions: {
-        cache: 'default',
+        cache: 'default', // https://developer.mozilla.org/en-US/docs/Web/API/Request/cache
         mode: 'same-origin',
       },
     }),
