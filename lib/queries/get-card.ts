@@ -20,4 +20,5 @@ export const getCardData = (cardId: string) =>
   getClient().query<GetCardQuery, GetCardQueryVariables>({
     query: GET_CARD,
     variables: { cardId },
+    fetchPolicy: 'no-cache',
   });
