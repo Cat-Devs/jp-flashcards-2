@@ -4,6 +4,7 @@ import { getDbClient } from '../clients/db-client';
 import { CardItem } from '../models/card';
 import { getImage } from '../helpers/get-image';
 import { BUCKET_NAME, TABLE_NAME } from '../config';
+import { logHelper } from '../helpers/log';
 
 export const getCard = async (cardId: string): Promise<Card> => {
   const card = new CardItem(cardId);
@@ -18,16 +19,22 @@ export const getCard = async (cardId: string): Promise<Card> => {
     const data = await client.send(new GetCommand(params));
 
     if (!data.Item) {
-      console.log(`Failed to retrieve card: "${cardId}"`);
+      logHelper('warn', `Card "${cardId}" not found`);
       return {} as unknown as Card;
     }
 
+    logHelper('trace', `Retrieved card: "${cardId}"`, data.Item);
+
     const image = await getImage(BUCKET_NAME, data.Item.image);
+    logHelper('info', 'image', image);
+
     return CardItem.fromItem({
       ...data.Item,
       image,
     });
   } catch (err) {
+    logHelper('error', `Failed to retrieve card: "${cardId}"`);
+
     throw err;
   }
 };

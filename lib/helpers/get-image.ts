@@ -1,5 +1,6 @@
 import { GetObjectCommand } from '@aws-sdk/client-s3';
 import { createAssetsClient } from '../clients/assets-client';
+import { logHelper } from './log';
 
 export const getImage = async (bucketName: string, objectName: string) => {
   try {
@@ -19,8 +20,9 @@ export const getImage = async (bucketName: string, objectName: string) => {
     const bodyAsString = await bodyStream.transformToString('base64');
     return bodyAsString;
   } catch (error) {
-    console.error(
-      `Error 'GetObjectCommand' in 'getImage' with 'bucketName': '${bucketName}' and 'objectName': '${objectName}':`,
+    logHelper(
+      'error',
+      `'GetObjectCommand' in 'getImage' with 'bucketName': '${bucketName}' and 'objectName': '${objectName}':`,
       (error as Error)?.message || error
     );
   }

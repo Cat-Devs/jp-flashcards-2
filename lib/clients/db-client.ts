@@ -1,12 +1,12 @@
 import { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import { AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY } from '../config';
+import { AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, TABLE_OFFLINE, AWS_REGION } from '../config';
 
 let clientInstance: DynamoDBDocumentClient | undefined;
 
 export const getDbClient = (force?: boolean): DynamoDBDocumentClient => {
-  const isOffline = process.env.TABLE_OFFLINE === 'true';
-  const REGION = isOffline ? 'localhost' : process.env.AWS_REGION; //e.g. "us-east-1"
+  const isOffline = TABLE_OFFLINE === 'true';
+  const REGION = isOffline ? 'localhost' : AWS_REGION;
 
   if (clientInstance && !force) {
     return clientInstance;
@@ -15,10 +15,12 @@ export const getDbClient = (force?: boolean): DynamoDBDocumentClient => {
   const client = new DynamoDBClient({
     region: REGION,
     ...(isOffline && { endpoint: 'http://localhost:8000' }),
-    credentials: {
-      accessKeyId: AWS_ACCESS_KEY_ID,
-      secretAccessKey: AWS_SECRET_ACCESS_KEY,
-    },
+    ...(!isOffline && {
+      credentials: {
+        accessKeyId: AWS_ACCESS_KEY_ID,
+        secretAccessKey: AWS_SECRET_ACCESS_KEY,
+      },
+    }),
   });
 
   const marshallOptions = {

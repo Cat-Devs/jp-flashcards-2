@@ -16,11 +16,14 @@ import {
   getCardsByLevelAndCategory,
 } from '@/lib/controllers';
 import { getUserCards } from '@/lib/controllers/userCards';
+import { logHelper } from '@/lib/helpers/log';
 
 export const resolvers = {
   Query: {
     async card(_root: any, { cardId }: QueryCardArgs): Promise<Card | null> {
       const item = await getCard(cardId);
+      logHelper('info', 'card resolver item', item);
+
       return item;
     },
 
