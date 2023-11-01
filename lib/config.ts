@@ -9,3 +9,4 @@ export const AWS_REGION = process.env.AWS_REGION as string;
 export const AWS_ACCESS_KEY_ID = process.env.AWS_ACCESS_KEY_ID as string;
 export const AWS_SECRET_ACCESS_KEY = process.env.AWS_SECRET_ACCESS_KEY as string;
 export const DEBUG = process.env.DEBUG as string;
+export const NEXT_PUBLIC_GRAPHQL_API_URL = process.env.NEXT_PUBLIC_GRAPHQL_API_URL as string;
