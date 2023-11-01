@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "postinstall": "sls dynamodb install",
+    "dynamodb-local": "sls dynamodb install",
     "dev": "pnpm codegen && next dev",
     "build": "pnpm codegen && next build",
     "sls:offline": "serverless offline start",

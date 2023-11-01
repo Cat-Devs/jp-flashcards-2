@@ -51,6 +51,13 @@ BUCKET_OFFLINE | When is set to `true` it will use a local S3 instance
 
 This project makes use of a mock database for local development.
 
+For using the DynamoDB Local instance, make sure to run the following command after
+installing the Node modules:
+
+```sh
+pnpm dynamodb-local
+```
+
 Just set the `TABLE_OFFLINE=true` inside your `.env` to get started.
 Then all the database requests will be mocked and you don't need to create any
 real DynamoDB table.

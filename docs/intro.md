@@ -8,7 +8,7 @@
 
 ## What is JP FlashCards
 
-This is an online flashcard based game to learn Japanese words using the spaced repetition system.
+This is an online flashcard based game to learn Japanese words using the [spaced repetition system](https://e-student.org/spaced-repetition/).
 
 ## Application Requirements
 
