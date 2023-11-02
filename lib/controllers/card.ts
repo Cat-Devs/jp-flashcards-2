@@ -58,7 +58,7 @@ export const getCardsByLevelAndCategory = async (level: number, category: string
     const client = getDbClient();
     const data = await client.send(new QueryCommand(params));
     if (!data.Items?.length) {
-      console.log('No items found');
+      logHelper('warn', 'No items found');
       return [];
     }
 
@@ -88,7 +88,7 @@ export const getCardsByCategory = async (category: string): Promise<Array<Card>>
     const client = getDbClient();
     const data = await client.send(new QueryCommand(params));
     if (!data.Items?.length) {
-      console.log('No items found');
+      logHelper('warn', 'No items found');
       return [];
     }
 
@@ -118,7 +118,7 @@ export const getCardsByLevel = async (level: number): Promise<Array<Card>> => {
     const client = getDbClient();
     const data = await client.send(new QueryCommand(params));
     if (!data.Items?.length) {
-      console.log('No items found');
+      logHelper('warn', 'No items found');
       return [];
     }
 
