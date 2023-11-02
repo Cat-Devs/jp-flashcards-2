@@ -6,7 +6,7 @@ import { Card } from '@/components/Card';
 import { logHelper } from '@/lib/helpers/log';
 
 export const dynamic = 'force-dynamic';
-// export const revalidate = 0;
+export const revalidate = 0;
 
 export default async function Page({ params }: { params: { cardId: string } }) {
   const { data } = await getCardData(params.cardId);
